@@ -1,0 +1,250 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+    
+    
+    
+    
+
+    
+   <div class="fixed-top">
+    
+    <div class="row text-white bg-dark">
+        <div class="col-md-1"></div> 
+        
+        
+        <div class="col-md-2 border-left border-right pt-3 pb-2 text-center"><i class="icofont-phone text-white"></i> 1800-2000-2001</div>
+        <div class="col-md-5"> </div>
+        <div class="col-md-1 pt-3 pb-2 border-left border-right"> <a href="" style="text-decoration: none; color: white">Register</a>
+            
+            </div>
+        <div class="col-md-2 pt-3 pb-2 border-right"><a href="" style="text-decoration: none; color: white; border-right"> support@example.com</a>
+        
+        
+        </div>
+        
+        
+    </div>
+    
+    
+        
+        
+        <div class="row" style="background: linear-gradient(white,white)">
+    <div class="col-md-12 text-center pt-2 pb-2">
+    
+        
+       <nav class="navbar navbar-expand-lg navbar-light  bg-white" style="background-color: black;">
+           <a class="navbar-brand ml-5" href="home.html"> <img width="100" height="50" src={%static "images/logo11.png" %}> <span class="hd1"> Spread</span><span class="hd2"> Joy</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav m-auto">
+      <li class="nav-item active">
+          <b> <a class="nav-link ml-5" href="#">Home <span class="sr-only">(current)</span></a></b>
+      </li>
+      <li class="nav-item active">
+          <b> <a class="nav-link ml-5" href="#">About</a></b>
+      </li>
+      <li class="nav-item active">
+          <b> <a class="nav-link ml-5" href="#">Medicines</a> </b>
+      </li>
+        
+        <li class="nav-item active">
+            <b> <a class="nav-link ml-5" href="#">Pages <span class="sr-only">(current)</span></a> </b>
+      </li>
+      <li class="nav-item active">
+          <b> <a class="nav-link ml-5" href="#">Contact us</a> </b>
+      </li>
+      
+    
+        
+      <li class="nav-item dropdown">
+       <b> <a class="nav-link dropdown-toggle ml-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Doctors
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">surgeon</a>
+          <a class="dropdown-item" href="#">radiologist</a>
+            <a class="dropdown-item" href="#">oncologist</a> 
+        </div>
+          </b>
+      </li>
+    </ul>
+      
+      <button class="btn btn-secondary btn-lg hov" type="button" style="background-color:#804f9f"> DONATE</button>
+      
+      
+  </div>
+</nav> 
+        </div>
+        </div> </div>
+           
+    
+    
+    
+    
+    
+   <div class="container-fluid" style="background-image: url({%static 'images/pink.jpg' %});background-repeat: no-repeat;background-size: cover;height: 1000px;">
+       <div class="row pt-5">
+           <div class="col-md-4 pt-5"></div>
+           <div class="col-md-4">
+           
+           
+           
+           <form method="POST">
+               {% csrf_token %}
+    <br>
+        <br>
+        <br>
+        <br>
+        
+        
+        <h2> HEY GUEST! FILL IN THE BASIC INFO TO BECOME A MEMBER</h2> <br>
+               
+               <h6>The info helps us getting to know you.</h6> <br>
+               <br>
+            
+                <label> First Name</label><span style="color:#ff0000">*</span>
+            <input type="text" required="required" name="fname" class="form-control inp" placeholder="Enter First Name" pattern="[A-Z a-z]{2,40}"> <br/> 
+               
+               <label> Last Name</label><span style="color:#ff0000">*</span>
+            <input type="text" name="lname" class="form-control inp" placeholder="Enter Last Name" pattern="[A-Z a-z]{2,40}"> <br/>
+               
+                
+                <label>E-mail</label><span style="color:#ff0000">*</span>
+            <input type="email" required="required" name="email" class="form-control inp" placeholder="Enter your passowrd"> <br/> 
+               
+               <label> Birthdate </label><span style="color:#ff0000">*</span>
+            <input type="date" required="required" name="birthday" class="form-control inp" placeholder="Enter your username" > <br/>
+               
+               
+               <label> Password</label><span style="color:#ff0000">*</span>
+            <input type="password" required="required" name="password" class="form-control inp" placeholder="Set a password" id="txtPassword"pattern="[A-Z a-z]{2,40}"> <br/>
+               
+               <label> Confirm Password</label><span style="color:#ff0000">*</span>
+            <input type="password" required="required" name="cpassword" class="form-control inp" placeholder="Enter password again" id="txtConfirmPassword"pattern="[A-Z a-z]{2,40}"> <br/>
+               
+        
+        <button class="btn btn-outline-danger my-2 my-sm-0 btn-lg" type="submit" value="Post"> SUBMIT <i class="icofont send email"></i></button><br> <br> Got an account? <a href="{% url 'login' %}">LOG IN</a>
+
+             
+           </form>
+           
+           
+           </div>
+           <div class="col-md-4"></div>
+       
+       
+    
+    
+       
+       </div>
+    
+       
+       
+       
+       
+       
+       
+       
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+     
+    
+    
+    
+    
+           
+           
+           
+           
+           
+           
+           
+            <script src={%static "js/jquery-3.4.1.min.js" %}></script>
+            <script src={%static "js/bootstrap.bundle.min.js" %}> </script>
+            <script src={%static "js/front.js" %}></script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    {% endblock %}
+    
+    
+    
+    
+    
+    
+    
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

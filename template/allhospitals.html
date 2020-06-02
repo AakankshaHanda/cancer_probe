@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container pt-5" style="margin-bottom: 20px; margin-top:80;">
+<div class="row">
+
+    {% for i in hs %}
+    {% if forloop.counter0|divisibleby:3 %}
+</div> <br> <br> <br> <div class="row p-2">
+{% endif %}
+<div class="col-md-4">
+<div class="card" style="width: 18rem;background-color: lightpink; border: white;">
+<img src="{{ i.photo.url }}"  style="width: 250px; margin-left: 20px; margin-top: 20px;" class="rounded-circle"/>
+    <div class="card-body">
+
+      <h5 class="card-title"></h5>
+      <h3 class="" style="color:white; margin-top: 20px;;">{{ i.Name}}</h3> <br> <br>
+      <i class=" icofont-ui-cell-phone icofont-2x" style="color: white;"> </i>{{i.phone_num}} <br> <br>
+      <i class="icofont-hospital icofont-2x"style="color:white;"></i> &nbsp;{{i.Speciality}} <br> <br>
+      <i class="icofont-ui-calendar icofont-2x" style="color: white;"></i> {{i.dateofopening}} <br> <br>
+      <i class="icofont-ui-home icofont-2x" style="color: white;"></i> {{i.address}} <br> <br>
+       <i class="icofont-hotel icofont-2x" style="color: white;" ></i>  {{i.City}}
+            
+
+      
+    </div>
+  </div>
+
+
+    
+            
+
+
+
+
+</div>
+{% endfor %}
+</div>
+
+
+</div>
+{% endblock %}

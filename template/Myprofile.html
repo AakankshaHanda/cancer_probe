@@ -1,0 +1,225 @@
+{%load static %}
+<html>
+<head>
+    
+    
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project ADMIN - PANEL </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!-- CSS files -->
+    
+    
+    <link rel="stylesheet" href="{%static "css/style.pink.css" %}">
+    <link rel="shortcut icon" href="{%static "images/favicon.png" %}">
+
+    <link rel="stylesheet" href="{%static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{%static "icofont/icofont.min.css" %}">
+
+
+    
+    <style>
+    
+        body{
+            
+            font-family: consolas;
+        }
+    
+    
+    </style>
+    
+    
+    
+    
+    
+    
+    </head>
+
+<body>
+    
+     <header class="header">
+      <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color:pink;"><a href="#" class="sidebar-toggler text-black-500 mr-4 mr-lg-5 lead" style="color: palevioletred;"><i class="icofont icofont-medical-sign"></i> </a><a href="#" class="navbar-brand font-weight-bold text-uppercase text-base" style="color: palevioletred;"> USER  </a>
+        <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+            
+          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src={%static "images/main_ad.png" %} alt="Admin" style="max-width: 3.5rem;" class="img-fluid rounded-circle shadow"></a>
+            <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Akanksha handa</strong><small></small></a>
+              <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a>
+              <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    
+    
+    
+    <div class="d-flex align-items-stretch">
+      <div id="sidebar" class="sidebar py-3">
+        <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">DASH <br>BOARD</div>
+        <ul class="sidebar-menu list-unstyled">
+            <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="icofont icofont-tools mr-3 text-gray"></i><span style="color: palevioletred;">My Account</span></a>
+            <div id="pages" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-solid">
+                  <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5" style="color: palevioletred;"> <span style="color: palevioletred;">Profile </span></a></li>
+                  <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5"> <span style="color: palevioletred;">Edit profile </span></a></li>
+                  
+                     </ul>
+            </div>
+          </li>
+            
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-home mr-3" style="color:gray;"></i><span style="color: palevioletred;">Review</span></a></li>
+              
+        
+              
+        </ul>
+        <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Your Queries</div>
+        <ul class="sidebar-menu list-unstyled">
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: palevioletred;">Help and Support</span></a></li>
+           
+            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: palevioletred;">Change Password</span></a></li>
+            
+            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: palevioletred;">LOGOUT</span></a></li>
+            
+            
+            
+        </ul>
+      </div>
+      <div class="page-holder w-100 d-flex flex-wrap">
+        
+        
+    
+      
+    
+    
+    
+    
+    <div class="container pt-5">
+
+<div class="row mt-2 " style="padding-top: 100px">
+<div class="col-md-3"></div>
+<div class="col-md-7 p-5" style="background-color: white;box-shadow: 20px 20px 10px #ccc">
+  <div class="row pt-3 ">
+    <div class="col-md-5">
+      
+      <img src={%static "images/main_ad.png" %} alt="admin" class="img-fluid rounded-circle" ><br/><br/>
+<h1 style="text-align:center;padding-bottom:15px ; color:palevioletred; font-size: 30px; font-family: consolas;">My Profile</h1>
+
+
+    </div>
+    <div class="col-md-7 pl-5 pt-3">
+      <p><span style="font-weight:bold; font-size:20px;">Email:</span>{{user.Email}}  Akankshahanda25@outlook.com
+<br/>
+<span style="font-weight:bold; font-size:20px;">First_Name:</span>{{user.First_Name}}  Aakanksha
+<br/>
+<span style="font-weight:bold; font-size:20px;">Last_Name:</span>{{user.Last_Name}}  Handa
+<br/>
+<span style="font-weight:bold; font-size:20px;">City:</span>{{user.City}}  Amritsar
+<br/>
+<span style="font-weight:bold; font-size:20px;">State:</span> {{user.State}} Punjab
+<br/>
+<span style="font-weight:bold; font-size:20px;">DOB:</span>{{user.DOB}}  26-5-1996
+<br/>
+<span style="font-weight:bold; font-size:20px;">Pin_Code:</span>{{user.Pin_Code}}  143001
+<br/>
+<span style="font-weight:bold; font-size:20px;">Phone_Number:</span>{{user.Phone_Number}}  9888440448</p>
+    </div>
+  </div>
+ 
+
+</div><div class="col-md-2"></div></div></div>
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+      <!-- footer --> 
+<!-- JavaScript files-->
+<script src={%static "js/jquery-3.4.1.min.js" %}></script>
+<script src={%static "js/bootstrap.bundle.min.js" %}> </script>
+<script src={%static "js/front.js" %}></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

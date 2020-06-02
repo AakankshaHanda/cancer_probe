@@ -1,0 +1,203 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project ADMIN - PANEL </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!-- CSS files -->
+    <link rel="stylesheet" href="{%static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{%static "icofont/icofont.css" %}">
+    <link rel="stylesheet" href="{%static "sidebar/style.violet.css" %}">
+    <link rel="shortcut icon" href=" {%static "images/favicon.png" %}">
+      <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
+      
+      
+<style>
+   
+      
+    h5{
+        font-family: Denk one;
+    }
+    p{
+        font-family: Denk one;
+    }
+    
+    .card-body:hover{
+       -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+        -moz-box-shadow: 3px 3px 5px 6px #ccc;
+        box-shadow: 3px 3px 5px 6px #ccc;
+    }
+      
+      </style>
+      
+      
+  </head>
+  <body> 
+    <!-- navbar-->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color:plum;"><a href="#" class="sidebar-toggler text-black-500 mr-4 mr-lg-5 lead" style="color: purple;"><i class="icofont icofont-medical-sign"></i> </a><a href="#" class="navbar-brand font-weight-bold text-uppercase text-base" style="color: purple;"> DOCTOR  </a>
+        <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+            
+          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="{%static "images/main_ad.png" %}" alt="Admin" style="max-width: 3.5rem;" class="img-fluid rounded-circle shadow"></a>
+            <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Akanksha handa</strong><small></small></a>
+              <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a>
+              <div class="dropdown-divider"></div><a href="" class="dropdown-item">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+      <div id="sidebar" class="sidebar py-3" style="background-color:whitesmoke;">
+        <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">DASH <br>BOARD</div>
+        <ul class="sidebar-menu list-unstyled">
+            
+             <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="icofont icofont-tools mr-3 text-gray"></i><span style="color: purple;">My Account</span></a>
+            <div id="pages" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-solid">
+                  <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5" style="color: purple;"> <span style="color: purple;">Profile </span></a></li>
+                  <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5"> <span style="color:purple;">Edit profile </span></a></li>
+                  
+                     </ul>
+            </div>
+          </li>
+            
+            
+          </ul>
+          
+          <div class="text-black-400 text-uppercase font-weight-bold small headings-font-family"></div>
+          <ul style="list-style-type: none" class="sidebar-menu list-unstyled">
+    
+              <li class="sidebar-list-item"><a href="{% url 'doctorsp' %}" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: purple;">Lung Cancer</span></a></li>
+           
+            <li class="sidebar-list-item"><a href="{% url 'breastcancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: purple;">Breast Cancer</span></a></li>
+            
+            <li class="sidebar-list-item"><a href="{% url 'ccancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: purple;">Cervical Cancer</span></a></li>
+            
+            
+          </ul>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Your Queries</div>
+        <ul class="sidebar-menu list-unstyled">
+              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: purple;">Help and Support</span></a></li>
+           
+            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: purple;">Change Password</span></a></li>
+            
+            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: purple;">LOGOUT</span></a></li>
+            
+            
+            
+        </ul>
+      </div>
+      <div class="page-holder w-100 d-flex flex-wrap">
+          
+          
+        <div class="row">
+  <div class="col-md-4" style="margin-left: 200px; margin-top: 50px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Cervical Cancer Overview</h5>
+        <p class="card-text">Want to know the basic information about cervical cancer, Visit our page to do the same.</p>
+        <a href="{% url 'ccanceroverview' %}" class="btn btn-primary">Overview</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4" style="margin-top: 50px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Symptoms of Cervical Cancer</h5>
+        <p class="card-text">As y'all know, awareness is the key. so be informed of the symptoms of Cervical cancer.</p>
+        <a href="{% url 'ccancersymptoms' %}" class="btn btn-primary">Symptoms.</a>
+      </div>
+    </div>
+  </div>
+</div>  
+          
+          
+          
+          
+    <div class="row">
+  <div class="col-md-4" style="margin-left: 200px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Preventive Measures</h5>
+        <p class="card-text"> Here are some prebventions that you can practice. As they say 'Prevention is better than cure'.</p>
+        <a href="{% url 'ccancerpreventions' %}" class="btn btn-primary">Preventions</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Relations Visualized</h5>
+        <p class="card-text">Humans teend to understand visual elements better. So here are some visualizations for you.</p>
+        <a href="" class="btn btn-primary">Visualizations</a>
+      </div>
+    </div>
+  </div>
+</div>  
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          </div>
+        
+        </div></div>
+    <!-- JavaScript files-->
+    <script src="{%static "js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{%static "js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{%static "sidebar/front.js" %}"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+    
+    
+    
+   <div class="container-fluid" style="background-image: url({%static 'images/pink.jpg' %});background-repeat: no-repeat;background-size: cover;height: 700px;">
+       <div class="row pt-5">
+           <div class="col-md-4 pt-5"></div>
+           <div class="col-md-4">
+           
+           
+           
+           <form method="POST" action="">
+               {% csrf_token %}
+    <br>
+        <br>
+        <br>
+        <br>
+        
+        
+        <h2> LOGIN</h2>
+            
+                <label>Your Email</label><span style="color:#ff0000">*</span>
+            <input type="email" required="required" name="email" class="form-control inp" id="usr"placeholder="Enter your email"> <br/> 
+                
+                <label>Password</label><span style="color:#ff0000">*</span>
+            <input type="password" required="required" name="password" class="form-control inp" placeholder="Enter your passowrd" id="psw" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"> <br/> 
+        
+         {% if formpost %}
+         Invalid details or you account not active yet
+         {% endif %}
+         {% csrf_token %}
+         
+
+
+        <button class="btn btn-outline-danger my-2 my-sm-0 btn-lg" type="submit" value="Post">LOGIN <i class="icofont send email"></i></button><br> <br> <a href="{% url 'register' %}">Register to unlock benefits. Click here</a>
+
+              <a href="{% url 'forgotpassword'%}">Forgot Password?</a>
+           </form>
+           
+           
+           
+           
+           
+    
+           
+           </div>
+           <div class="col-md-4"></div>
+       
+       
+    
+    
+       
+       </div>
+    
+       
+       
+       
+       
+       
+       
+       
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            <script src={%static "js/jquery-3.4.1.min.js" %}></script>
+            <script src={%static "js/bootstrap.bundle.min.js" %}> </script>
+            <script src={%static "js/front.js" %}></script>
+        
+        {% endblock %}
+    
+    
+    </body>
+
+
+</html>

@@ -1,0 +1,39 @@
+
+{% extends 'base2.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<html>
+<head>
+<title> </title>
+</head>
+
+<body>
+<h1 style="text-align: center;"> PICTORIAL REPRESENTATION OF BREAST CANCER</h1>
+<form action="" method="POST"  style="margin-left: 250px; margin-top: 50px;">
+{% csrf_token %}
+
+ <select name="t1" style="font-family: denk one;">
+ <option value="radius_mean"> radius_mean</option>
+ <option value="perimeter_mean"> perimeter_mean</option>
+ <option value="texture_mean"> texture_mean</option>
+ <option value="area_mean"> area_mean</option>
+ <option value="smoothness_mean"> smoothness_mean</option>
+ <option value="compactness_mean"> compactness_mean</option>
+ <option value="concavity_mean"> concavity_mean</option>
+ <option value="concave points_mean"> concave points_mean</option>
+ <option value="symmetry_mean"> symmetry_mean</option>
+ <option value="fractal_dimension_mean"> fractal_dimension_mean</option>
+ 
+
+
+ </select>
+ <input type="submit" value="Post" style="background-color:palevioletred; color: white;" class="rounded-pill"/>
+</form>
+{% endblock %}
+</body>
+
+</html>

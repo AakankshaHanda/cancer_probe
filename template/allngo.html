@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container" style="padding-top: 80px; margin-bottom: 20px;;">
+<div class="row">
+{% for i in ng %}
+{% if forloop.counter0|divisibleby:3 %}
+
+</div> <br> <div class="row">
+{% endif %}
+<div class="col-md-4" >
+    <div class="card" style="width: 20rem;height:28rem;background-color: lightpink;">
+        
+        <div class="card-body pt-5">
+            
+           <h3 style="color: white;"> {{ i.name}} </h3><br> 
+           <i class="icofont-ui-home icofont-2x" style="color: white;"></i> &nbsp;  {{i.address}} <br> <br> <br>
+           <i class="icofont-ui-calendar icofont-2x" style="color: white;"></i> &nbsp;{{i.years_operating}} <br> <br>
+            <a href="#" class="btn" style="background-color: indigo;color: white;">Donate</a>
+            
+            
+            
+          
+        </div>
+      </div>
+
+    
+
+</div>
+{% endfor %}
+
+</div>
+
+
+
+</div>
+{% endblock %}

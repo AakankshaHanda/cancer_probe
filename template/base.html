@@ -119,10 +119,14 @@
         
         <div class="col-md-2 border-left border-right pt-3 pb-2 text-center"><i class="icofont-phone text-white"></i> 1800-2000-2001</div>
         <div class="col-md-5"> </div>
+        {% if 'email' in request.session %}
+        <div class="col-md-1 pt-3 pb-2 border-left border-right"> <a href="{% url 'log' %}" style="text-decoration: none; color: white">Logout</a>
+     
+        {% else %}
         <div class="col-md-1 pt-3 pb-2 border-left border-right"> <a href="{% url 'register' %}" style="text-decoration: none; color: white">Register</a>
-            
+         {% endif %}   
             </div>
-        <div class="col-md-2 pt-3 pb-2 border-right"><a href="" style="text-decoration: none; color: white; border-right"> support@example.com</a>
+        <div class="col-md-2 pt-3 pb-2 border-right"><a href="" style="text-decoration: none; color: white; border-right"> akshihanda25@gmail.com</a>
         
         
         </div>
@@ -146,23 +150,32 @@
           <b> <a class="nav-link ml-5" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a></b>
       </li>
       <li class="nav-item active">
-          <b> <a class="nav-link ml-5" href="#">About</a></b>
+          <b> <a class="nav-link ml-5" href="{% url 'aboutus' %}">About</a></b>
       </li>
       
         
       <li class="nav-item active">
-          <b> <a class="nav-link ml-5" href="{% url 'contact' %}">Contact us</a> </b>
+          <b> <a class="nav-link ml-5" href="{% url 'contact' %}">Contact </a> </b>
       </li>
       
     
         
-      <li class="nav-item dropdown">
-       <b> <a class="nav-link ml-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Doctors
-        </a>
-        
-          </b>
-      </li>
+      
+    <li class="nav-item dropdown">
+        <b> <a class="nav-link dropdown-toggle ml-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Cancers
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+           <a class="dropdown-item" href="{% url 'lcancermain' %}">Lung cancer</a>
+           <a class="dropdown-item" href="{% url 'bcancermain' %}">Breast  cancer</a>
+             <a class="dropdown-item" href="{% url 'ccancermain' %}">Cervical cancer</a> 
+         </div>
+           </b>
+       </li>
+         
+       
+       
+
     </ul>
       
       <button class="btn btn-secondary btn-lg hov" type="button" style="background-color:#804f9f"> DONATE</button>
@@ -180,19 +193,19 @@
 {% endblock %}
 
 <div class="container-fluid bg-dark text-white" style="background-image: url({%static 'images/back.jpg' %});">
-    <div class="pt-5 pb-5" style="background-color:rgba(0,0,0,0.65)">
+    <div class=" row py-5" style="background-color:rgba(0,0,0,0.65)">
     <div class="container">
     <div class="row" >
         <div class="col-md-2 pt-2 pb-2">
         <a class="navbar-brand" href="home.html"> <img width="100" height="50" src={%static "images/logo11.png" %}> <span class="hd1" style="font-family:Denk one;"> Cancer</span><span class="hd2" style="font-family:denk one;"> Probe</span></a>
         
         </div>
-        <div class="col-md-8 mt-4 pb-2 text-center ftcolor"> Burj Punjab, Ranjit Avenue, B-block, Amritsar </div>
+        <div class="col-md-8 mt-4 pb-2 text-center ftcolor" style="font-family: righteous;"> Burj Punjab, Ranjit Avenue, B-block, Amritsar </div>
         <div class="col-md-2 mt-2 text-right text-white" style="text-decoration-color: white;"> <button class="btn btn-secondary btn-lg hov" type="button" style="background-color:#804f9f"> DONATE</button>  </div>
         
         <div class="row border-top border-secondary mt-3">
            <div class="col-md-6 border-right border-bottom mt-3 border-secondary"> <br/>
-               <h5> Click the subscribe button to not miss any updates!!</h5>
+               <h5 style="font-family: Righteous;"> Click the subscribe button to not miss any updates!!</h5>
             
             
             <div class="input-group mb-3 mt-5">
@@ -207,31 +220,32 @@
             </div>
            
            <div class="col-md-2 pt-2 border-bottom border-secondary"> 
-               <ul style="list-style: none"> USEFUL LINKS
+               <ul style="list-style: none; font-family: Righteous; "> USEFUL  <br> LINKS <br>
                
-               <li> Events</li> 
+              
                
-               <li> doctors</li> 
-               <li> hospitals</li> 
-               <li> medicines</li> 
-               <li> Events</li> 
+               <li> <a href="{% url 'doctors' %}" style="text-decoration: none; color: palevioletred; font-family: Righteous;"> Doctors </a> </li> <br>
+               <li> <a href="{% url 'hospitals' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">  Hospitals </a></li>  <br>
+               <li> <a href="{% url 'NGO' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">NGOs</a></li> <br>
+               
                
                </ul> </div>
             
-           <div class="col-md-2 pt-2 border-bottom border-secondary"> <ul style="list-style: none"> RELATED STUFF
+           <div class="col-md-2 pt-2 border-bottom border-secondary"> <ul style="list-style: none; font-family: Righteous;"> RELATED STUFF <br>
                
-               <li> donate</li> 
-               <li> volunteer</li> 
-               <li> about us</li> 
-               <li> Events</li> 
+            <li> <a href="{% url 'index' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">Home </a></li> <br>
+
+               <li> <a href="{% url 'aboutus' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">About us </a></li>  <br>
+               
+               <li> <a href="{% url 'nnews' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">News and Research </a></li>
                </ul> </div>
             
            <div class="col-md-2 pt-2 border-bottom border-secondary"> 
-            <ul style="list-style: none"> TYPES OF CANCER
+            <ul style="list-style: none; font-family: Righteous;"> TYPES OF CANCER 
                
-               <li>cancers</li>
-                <li> lung</li> 
-               <li> skin</li> 
+               <li> <a href="{% url 'ccancermain' %}" style="text-decoration: none; color: palevioletred; font-family: Righteous; "> Cervical cancer </a></li> <br>
+                <li> <a href="{% url 'lcancermain' %}" style="text-decoration: none; color: palevioletred; font-family: Righteous;">Lung Cancer </a></li> <br>
+               <li> <a href="{% url 'bcancermain' %}" style="text-decoration: none; color: palevioletred; font-family: Righteous; ">Breast Cancer </a></li> <br>
                
                </ul>
             
@@ -250,5 +264,9 @@
 
 </div>
 
+
+
+<script src={%static "js/jquery-3.4.1.min.js" %}> </script>
+        <script src={%static "js/bootstrap.bundle.min.js" %}> </script>
 
 </body>

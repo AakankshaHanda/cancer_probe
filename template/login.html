@@ -1,47 +1,280 @@
-
-{% extends 'base.html' %}
-
-{% block content %}
-{% load static %}
-
-
-    
-    
-    
-   <div class="container-fluid" style="background-image: url({%static 'images/pink.jpg' %});background-repeat: no-repeat;background-size: cover;height: 700px;">
-       <div class="row pt-5">
-           <div class="col-md-4 pt-5"></div>
-           <div class="col-md-4">
-           
-           
-           
-           <form method="POST" action="">
-               {% csrf_token %}
-    <br>
-        <br>
-        <br>
-        <br>
-        
-        
-        <h2> LOGIN</h2>
+{%load static %}
+    <html>
+        <head>
             
-                <label>Your Email</label><span style="color:#ff0000">*</span>
-            <input type="email" required="required" name="email" class="form-control inp" id="usr"placeholder="Enter your email"> <br/> 
-                
-                <label>Password</label><span style="color:#ff0000">*</span>
-            <input type="password" required="required" name="password" class="form-control inp" placeholder="Enter your passowrd" id="psw" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"> <br/> 
+            <link rel="stylesheet" href="{%static "css/bootstrap.min.css" %}">
+            <link rel="stylesheet" href="{%static "icofont/icofont.min.css" %}">
         
-         {% if formpost %}
-         Invalid details or you account not active yet
-         {% endif %}
-         {% csrf_token %}
+        <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+        
+        
+            
+            
+        
+            <style>
+            
+                
+                .crd:hover{
+                    background-color:plum;
+                }
+                
+                .crd1:hover{
+                    background-color:pink;
+                }
+            
+                .crd2:hover{
+                    background-color:#DA8EC2 ;
+                }
+               .inp{ background-color:beige; border:none; border-radius: 0%}
+                .inp:focus{
+                    box-shadow: none;  outline: none; border:thick solid beige;
+                }
+                .hd1{
+                    font-family: fantasy; color: blueviolet; text-decoration-style: double;
+                    
+                }
+                
+                .hd2{
+                    font-family: cursive; color: deeppink; text-decoration-style: wavy;
+                }
+                
+                .ft{
+                    font-size: 20px; font-style: normal; color: black;
+                }
+                
+                .foot{
+                    background-color: black;
+                    
+                }
+                
+                .hov:hover{
+                    color: black;
+                }
+                
+                .ftcolor:hover{
+                    color: #ee5f8d;
+                }
+                
+                .bgcolor:hover{
+                    background-color: #ee5f8d;
+                }
+                body{
+                    font-family: consolas;
+                }  
+                
+                
+                h1{
+                    
+                    text-align: center;
+                    color:lightpink;
+                    text-align: center;
+                    margin-top: 400px;
+        
+                    font-family: Denk one;
+                }
+                .goog{
+                    font-family: Denk one;
+                }
+                
+
+                
+                
+                
+                
+                
+            </style>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+            
+            
+            </head>
+        
+        <body>
+            
+            
+            <body style="border-radius: 0px;">
+            <div class="fixed-top">
+            
+            <div class="row text-white bg-dark">
+                <div class="col-md-1"></div> 
+                
+                
+                <div class="col-md-2 border-left border-right pt-3 pb-2 text-center"><i class="icofont-phone text-white"></i> 1800-2000-2001</div>
+                <div class="col-md-5"> </div>
+                <div class="col-md-1 pt-3 pb-2 border-left border-right"> <a href="{% url 'register' %}" style="text-decoration: none; color: white">Register</a>
+                    
+                    </div>
+                <div class="col-md-2 pt-3 pb-2 border-right"><a href="" style="text-decoration: none; color: white; border-right"> akshihanda25@gmail.com</a>
+                
+                
+                </div>
+                
+                
+            </div>
+            
+            
+            <div class="row" style="background: linear-gradient(white,white)">
+            <div class="col-md-12 text-center pt-2 pb-2">
+            
+                
+               <nav class="navbar navbar-expand-lg navbar-light  bg-white" style="background-color: black;">
+                   <a class="navbar-brand ml-5" href="{% url 'index' %}"> <img width="100" height="50" src={%static "images/logo11.png" %}> <span class="hd1" style="font-family: Denk one;"> Cancer</span><span class="hd2" style="font-family: Denk one;"> Probe</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav m-auto">
+              <li class="nav-item active">
+                  <b> <a class="nav-link ml-5" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a></b>
+              </li>
+              <li class="nav-item active">
+                  <b> <a class="nav-link ml-5" href="{% url 'aboutus' %}">About</a></b>
+              </li>
+              
+                
+              <li class="nav-item active">
+                  <b> <a class="nav-link ml-5" href="{% url 'contact' %}">Contact us</a> </b>
+              </li>
+              
+            
+              
+        
+            <li class="nav-item dropdown">
+                <b> <a class="nav-link dropdown-toggle ml-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Cancers
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                   <a class="dropdown-item" href="{% url 'lcancermain' %}">Lung cancer</a>
+                   <a class="dropdown-item" href="{% url 'bcancermain' %}">Breast  cancer</a>
+                     <a class="dropdown-item" href="{% url 'ccancermain' %}">Cervical cancer</a> 
+                 </div>
+                   </b>
+               </li>
+                 
+               
+               
+        
+        
+            </ul>
+            
+
+
+
+
+
+
+
+              
+            </ul>
+              
+              <button class="btn btn-secondary btn-lg hov" type="button" style="background-color:#804f9f"> DONATE</button>
+              
+              
+          </div>
+        </nav> 
+                </div>
+                </div> </div>
+                
+            
+        
+
+
+
+
+
+
+
+
+
+
+    
+    
+   <div class="container-fluid" style="background-image: url({%static 'images/loginimg.jpg' %});background-repeat: no-repeat;background-size: cover;height: 100vh;">
+       <div class="row pt-5">
+           
+           <div class="p-relative">
+           
+           
+           
+           <form method="POST" action="" class="login-box px-5" style=" position: absolute; 
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%,-50%);
+              opacity: 0.7;
+       background-color: palevioletred!important;" >
+               {% csrf_token %}
+    
+        
+        
+
+         
+             
+                 <h2 class="text-center text-light" style="font-family: righteous;"> LOGIN</h2>
+                 
+                 <label class="text-light" style="font-family: righteous;">Your Username</label><span style="color:#ff0000">*</span>
+                 <input type="email" required="required" name="email" class="form-control inp" id="usr"placeholder="Enter your username" required="required">  
+                     
+                 <label class="text-light" style="font-family: righteous;">Password</label><span style="color:#ff0000">*</span>
+                 <input type="password" required="required" name="password" class="form-control inp mb-3" placeholder="Enter your passowrd" id="psw" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"> 
+             
+
+                 {% if formpost %}
+                 Invalid details or you account not active yet
+                 {% endif %}
+                 {% csrf_token %}
+
+
+
+                 <button class="btn btn-outline-danger my-2 my-sm-0 btn-lg align-center d-block mx-auto custom-btn" type="submit" style="background-color: white;
+                 color: palevioletred;">LOGIN <i class="icofont send email"></i></button> 
+                    <h5 class="text-light mt-2">Can't remember password? </h5> <a href="{% url 'forgotpassword' %}" class="unlock-link d-block mt-2" style="text-decoration: none; color: darkviolet;"> Click here</a>
+     
+                  
+               
+                
+                
+                
+                
+                
+         
+                
+                </div>
+                
+            
+            
+        
+         
          
 
 
-        <button class="btn btn-outline-danger my-2 my-sm-0 btn-lg" type="submit" value="Post">LOGIN <i class="icofont send email"></i></button><br> <br> <a href="{% url 'register' %}">Register to unlock benefits. Click here</a>
-
-              <a href="{% url 'forgotpassword'%}">Forgot Password?</a>
+        
            </form>
+
+
+
+
+
+
+
+           
            
            
            
@@ -50,7 +283,7 @@
     
            
            </div>
-           <div class="col-md-4"></div>
+           
        
        
     
@@ -58,7 +291,81 @@
        
        </div>
     
-       
+       <div class="container-fluid bg-dark text-white" style="background-image: url({%static 'images/back.jpg' %});">
+        <div class=" row py-5" style="background-color:rgba(0,0,0,0.65)">
+        <div class="container">
+        <div class="row" >
+            <div class="col-md-2 pt-2 pb-2">
+            <a class="navbar-brand" href="home.html"> <img width="100" height="50" src={%static "images/logo11.png" %}> <span class="hd1" style="font-family:Denk one;"> Cancer</span><span class="hd2" style="font-family:denk one;"> Probe</span></a>
+            
+            </div>
+            <div class="col-md-8 mt-4 pb-2 text-center ftcolor" style="font-family: righteous;"> Burj Punjab, Ranjit Avenue, B-block, Amritsar </div>
+            <div class="col-md-2 mt-2 text-right text-white" style="text-decoration-color: white;"> <button class="btn btn-secondary btn-lg hov" type="button" style="background-color:#804f9f"> DONATE</button>  </div>
+            
+            <div class="row border-top border-secondary mt-3">
+               <div class="col-md-6 border-right border-bottom mt-3 border-secondary"> <br/>
+                   <h5 style="font-family: Righteous;"> Click the subscribe button to not miss any updates!!</h5>
+                
+                
+                <div class="input-group mb-3 mt-5">
+    <input type="email" class="form-control" placeholder="Enter your email address" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div class="input-group-append mb-5">
+    <button class="btn btn-outline-secondary bgcolor" type="button" id="button-addon2" style="background-color:hotpink">Subscribe</button>
+    </div>
+    </div>
+                
+                
+                
+                </div>
+               
+               <div class="col-md-2 pt-2 border-bottom border-secondary"> 
+                   <ul style="list-style: none; font-family: Righteous; "> USEFUL  <br> LINKS <br>
+                   
+                  
+                   
+                   <li> <a href="{% url 'doctors' %}" style="text-decoration: none; color: palevioletred; font-family: Righteous;"> Doctors </a> </li> <br>
+                   <li> <a href="{% url 'hospitals' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">  Hospitals </a></li>  <br>
+                   <li> <a href="{% url 'NGO' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">NGOs</a></li> <br>
+                   
+                   
+                   </ul> </div>
+                
+               <div class="col-md-2 pt-2 border-bottom border-secondary"> <ul style="list-style: none; font-family: Righteous;"> RELATED STUFF <br>
+                   
+                <li> <a href="{% url 'index' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">Home </a></li> <br>
+                    
+                   <li> <a href="{% url 'aboutus' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">About us </a></li> <br>
+                   
+                   <li> <a href="{% url 'nnews' %}" style="text-decoration: none; color: palevioletred;font-family: Righteous; ">News and Research </a></li>
+                   </ul> </div>
+                
+               <div class="col-md-2 pt-2 border-bottom border-secondary"> 
+                <ul style="list-style: none; font-family: Righteous;"> TYPES OF CANCER 
+                   
+                   <li> <a href="{% url 'ccancermain' %}" style="text-decoration: none; color: palevioletred; font-family: Righteous; "> Cervical cancer </a></li> <br>
+                    <li> <a href="{% url 'lcancermain' %}" style="text-decoration: none; color: palevioletred; font-family: Righteous;">Lung Cancer </a></li> <br>
+                   <li> <a href="{% url 'bcancermain' %}" style="text-decoration: none; color: palevioletred; font-family: Righteous; ">Breast Cancer </a></li> <br>
+                   
+                   </ul>
+                
+                </div>
+                
+             </div>
+            
+                 
+            </div>
+    
+    
+    
+    
+            </div>
+        </div>
+    
+    </div>
+    
+    
+    </body>
+     
        
        
        
@@ -108,8 +415,7 @@
             <script src={%static "js/bootstrap.bundle.min.js" %}> </script>
             <script src={%static "js/front.js" %}></script>
         
-        {% endblock %}
-    
+        
     
     </body>
 

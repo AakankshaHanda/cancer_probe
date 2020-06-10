@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{%static "icofont/icofont.min.css" %}">
 
 <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
 
         
 <style>
@@ -29,9 +30,8 @@
       
   }
       
-      body{
-          font-family: consolas;
-      }
+      
+      
       
       .btn{
           font-family: consolas;
@@ -87,6 +87,7 @@ font-size: 35px;
       }
       .tcolor:hover{
         color: palevioletred;
+        font-family: Righteous;
 
       }
       
@@ -105,8 +106,9 @@ font-size: 35px;
     <span class="hd1" style="font-size: 28px; font-family: Denk one;"> Cancer</span><span class="hd2" style="font-size: 28px; font-family:Denk one;"> Probe</span></a>
       </div>
   <div class=' col-md-6 text-right'>
-      <button class="btn btn-secondary btn-lg hov" type="button" style="background-color:#804f9f; margin-right: 150px; font-family: consolas;"> DONATE</button>
-  </div>
+      <button class="btn btn-secondary btn-lg hov" type="button" style="background-color:#804f9f; margin-right: 10px; font-family: consolas;"> DONATE</button>
+      <button class="btn btn-secondary btn-lg hov" type="button" style="background-color:palevioletred; margin-right: 10px; font-family: consolas;"> <a href="{% url 'login' %}" style="text-decoration: none; color: white;"> LOGIN </a></button>
+    </div>
   </div>
       </div>
   
@@ -130,12 +132,14 @@ font-size: 35px;
     <b> <a class="nav-link ml-5" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a></b>
 </li>
 <li class="nav-item active">
-    <b> <a class="nav-link ml-5" href="#">About</a></b>
+    <b> <a class="nav-link ml-5" href="{% url 'aboutus' %}">About</a></b>
 </li>
 <li class="nav-item active">
-    <b> <a class="nav-link ml-5" href="{% url 'contact' %}">Contact us</a> </b>
+    <b> <a class="nav-link ml-5" href="{% url 'contact' %}">Contact</a> </b>
 </li>
   
+
+
 
   <li class="nav-item dropdown">
  <b> <a class="nav-link dropdown-toggle ml-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -151,18 +155,15 @@ font-size: 35px;
   
 
 
-  
-<li class="nav-item dropdown">
- <b> <a class="nav-link dropdown-toggle ml-5" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Doctors
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-    <a class="dropdown-item" href="#">surgeon</a>
-    <a class="dropdown-item" href="#">radiologist</a>
-      <a class="dropdown-item" href="#">oncologist</a> 
-  </div>
-    </b>
-</li>
+
+
+
+
+
+
+
+
+
 </ul>
 
 
@@ -214,7 +215,7 @@ font-size: 35px;
         <div class="overlay-text position-absolute">
             <H2>UNITE. IGNITE. FIGHT</H2>
             <H2>HELP US BEAT CANCER!!</H2>
-            <button class="overlay-button btn" style="background-color: palevioletred; color: white;">Learn More</button>
+            <button class="overlay-button btn" style="background-color: palevioletred; color: white;"> <a href="{% url 'aboutus' %}" style="color: white;">Learn More </a></button>
         </div>       
         
         <div></div>
@@ -229,7 +230,7 @@ font-size: 35px;
         <div class="overlay-text-1 position-absolute">
             <H2>UNITE. IGNITE. FIGHT</H2>
             <H2>HELP US BEAT CANCER!!</H2>
-            <button class="overlay-button btn" style="background-color: palevioletred;color: white;">Learn More</button>
+            <button class="overlay-button btn" style="background-color: palevioletred;color: white;"> <a href="{% url 'aboutus' %}" style="text-decoration: none; color: white;">Learn More </a></button>
         </div>
     </div>
 
@@ -255,7 +256,7 @@ font-size: 35px;
   <div class="card-body">
     <h5 class="card-title text-white">ABOUT US</h5>
     <p class="card-text text-white">We provide information on the deadly disease that cancer is, along with predicting how dangerous it is in ypur case.</p>
-    <a href="#" class="btn btn-light">Get to know us.</a>
+    <a href="{% url 'aboutus' %}" class="btn btn-light">Get to know us.</a>
   </div>
 </div>
             
@@ -280,7 +281,7 @@ font-size: 35px;
   <div class="card-body">
     <h5 class="card-title text-white">SPREAD AWARENESS</h5>
     <p class="card-text text-white">Get briefed about the latest news related to cancer.Be Aware, Make Aware!</p>
-    <a href="#" class="btn btn-light"> NEWS AND RESEARCHES</a>
+    <a href="{% url 'nnews' %}" class="btn btn-light"> NEWS AND RESEARCHES</a>
   </div>
 </div>
             
@@ -391,7 +392,7 @@ font-size: 35px;
         
         
         <div class="container-fluid bg-dark text-white" style="background-image: url({%static 'images/back.jpg' %});">
-        <div class="pt-5 pb-5" style="background-color:rgba(0,0,0,0.65)">
+        <div class=" row py-5" style="background-color:rgba(0,0,0,0.65)">
         <div class="container">
         <div class="row" >
             <div class="col-md-2 pt-2 pb-2">
@@ -417,31 +418,30 @@ font-size: 35px;
                 
                 </div>
                
-               <div class="col-md-2 pt-2 border-bottom border-secondary"> 
-                   <ul style="list-style: none"> USEFUL LINKS
+               <div class="col-md-2 pt-2 border-bottom border-secondary" style="font-family:Righteous ;"> 
+                   <ul style="list-style: none" > USEFUL LINKS
                     
                    
-                   <li> <a href="{% url 'doctor' %}"> Doctors </a></li> 
-                   <li> <a href="{% url 'hospital' %}"> hospitals </a></li> 
-                   <li><a href="{% url 'NGO' %}"> NGO </a></li> 
+                   <li> <a href="{% url 'doctors' %}" style="font-family: righteous; color: palevioletred;"> Doctors </a></li> 
+                   <li> <a href="{% url 'hospitals' %}" style="font-family: righteous; color: palevioletred;"> hospitals </a></li> 
+                   <li><a href="{% url 'NGO' %}" style="font-family: righteous; color: palevioletred;"> NGO </a></li> 
                    
                    
                    </ul> </div>
                 
-               <div class="col-md-2 pt-2 border-bottom border-secondary"> <ul style="list-style: none"> RELATED STUFF
+               <div class="col-md-2 pt-2 border-bottom border-secondary" style="font-family: Righteous;"> <ul style="list-style: none"> RELATED STUFF
                    
-                   <li> donate</li> 
-                   <li> volunteer</li> 
-                   <li> about us</li> 
-                   <li>Research</li> 
+                   <li> <a href="{% url 'index' %}"style="font-family: righteous; color: palevioletred;"> Home </a></li> 
+                   <li> <a href="{% url 'aboutus' %}"style="font-family: righteous; color: palevioletred;">about us </a></li> 
+                   <li> <a href="{% url 'nnews' %}"style="font-family: righteous; color: palevioletred;"> News and Research </a></li> 
                    </ul> </div>
                 
-               <div class="col-md-2 pt-2 border-bottom border-secondary"> 
+               <div class="col-md-2 pt-2 border-bottom border-secondary" style="font-family:Righteous ;"> 
                 <ul style="list-style: none"> TYPES OF CANCER
                    
-                   <li> <a href="{% url 'bcancermain' %}"> Breast Cancer </a></li>
-                    <li><a href="{% url 'lcancermain' %}">  lung Cancer </a></li> 
-                   <li> <a href="{% url 'ccancermain' %}"> Cervical Cancer </a></li> 
+                   <li> <a href="{% url 'bcancermain' %}" style="font-family: righteous; color: palevioletred;"> Breast Cancer </a></li>
+                    <li><a href="{% url 'lcancermain' %}" style="font-family: righteous; color: palevioletred;">  lung Cancer </a></li> 
+                   <li> <a href="{% url 'ccancermain' %}" style="font-family: righteous; color: palevioletred;"> Cervical Cancer </a></li> 
                    
                    </ul>
                 

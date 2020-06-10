@@ -26,8 +26,11 @@ class NGO(models.Model):
     address=models.CharField(max_length=300)
     years_operating=models.CharField(max_length=50)
 class appointment(models.Model):
-    name=models.CharField(max_length=50)
+    user_name=models.CharField(max_length=50)
     day=models.CharField(max_length=50)
+    user_email=models.CharField(max_length=50)
+    user_phn=models.IntegerField()
+    doc=models.CharField(max_length=100)
 class patient(models.Model):
     Name=models.CharField(max_length=50)
     dis_history=models.CharField(max_length=50)
@@ -51,30 +54,30 @@ class user(models.Model):
     email=models.EmailField(max_length=50)
     name=models.CharField(max_length=50)
 class Review(models.Model):
-    review=models.CharField(max_length=300,unique=True)
+    review=models.CharField(max_length=300)
     txtarea=models.TextField()
 class Reg(models.Model):
-    fname=models.CharField(max_length=300,unique=True)
-    lname=models.CharField(max_length=300,unique=True)
+    fname=models.CharField(max_length=300)
+    lname=models.CharField(max_length=300)
     email=models.EmailField(max_length=300,unique=True)
-    birthday=models.CharField(max_length=300,unique=True)
-    password=models.CharField(max_length=30,unique=True)
-    cpassword=models.CharField(max_length=30,unique=True)
+    birthday=models.CharField(max_length=300)
+    password=models.CharField(max_length=30)
+    cpassword=models.CharField(max_length=30)
 class Login(models.Model):
-    user=models.CharField(max_length=300,unique=True)
-    password=models.CharField(max_length=30,unique=True)
+    user=models.CharField(max_length=300)
+    password=models.CharField(max_length=30)
 class Changepassword(models.Model):
-    oldp=models.CharField(max_length=30, unique=True)
-    newp=models.CharField(max_length=30,unique=True)
-    retypep=models.CharField(max_length=30,unique=True)
+    oldp=models.CharField(max_length=30)
+    newp=models.CharField(max_length=30)
+    retypep=models.CharField(max_length=30)
 class HandS(models.Model):
-    subject=models.CharField(max_length=300,unique=True)
-    txtarea=models.CharField(max_length=500,unique=True)
+    subject=models.CharField(max_length=300)
+    txtarea=models.CharField(max_length=500)
 class Contact(models.Model):
-    name=models.CharField(max_length=300,unique=True)
-    email=models.EmailField(max_length=300,unique=True)
+    name=models.CharField(max_length=300)
+    email=models.EmailField(max_length=300)
     phone=models.IntegerField()
-    message=models.TextField(max_length=500,unique=True)
+    message=models.TextField(max_length=500)
 
     
 

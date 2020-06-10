@@ -1,0 +1,43 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
+{%load static %}
+
+<html>
+<head>
+<title> </title>
+</head>
+
+<body>
+<h1> PICTORIAL REPRESENTATION OF CERVICAL CANCER </h1>
+
+  <form action="" method="POST" style="margin-left: 250px; margin-top: 50px;">
+{% csrf_token %}
+
+ <select name="t1" style="font-family: denk one;">
+ <option value="Age"> Age</option>
+ <option value="number_of_sexual_partners"> Number_of_sexual_partners</option>
+ <option value="First_sexual_intercourse"> First_sexual_intercourse</option>
+ <option value="Num_of_pregnancies"> Num_of_pregnancies</option>
+ <option value="Smokes"> Smokes</option>
+ <option value="Smokes_years"> Smokes_years</option>
+ <option value="Smokes_packs_years"> Smokes_packs_years</option>
+ 
+ 
+
+
+ </select>
+ <input type="submit" value="Post" style="background-color:palevioletred; color: white;"/>
+  </form>
+  <script src={%static "js/jquery-3.4.1.min.js" %}></script>
+   <script src={%static "js/bootstrap.bundle.min.js" %}> </script>
+   <script src={%static "js/front.js" %}></script>
+   </div>
+   
+
+
+   {% endblock %}
+  </body>
+
+  </html>

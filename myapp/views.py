@@ -9,7 +9,7 @@ from myapp.models import HandS
 from myapp.models import Contact
 from myapp.models import hospital
 from myapp.models import NGO
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -23,6 +23,9 @@ import pickle
 import numpy as np
 from django.conf import settings
 from django.core.mail import send_mail
+from keras.models import load_model
+from tensorflow import keras
+from keras.preprocessing import image
 # Create your views here.
 def index(request):
     return HttpResponse("Hello")
@@ -61,9 +64,11 @@ def ccancer(request):
     my_dict={}
     return render(request,'cervicalcancer.html',context=my_dict)
 def passchange(request):
+    if not request.session.has_key('email'):
+        return redirect('/login/')
     if request.method=='POST':
         regi=Reg.objects.get(email=request.session['email'])
-        oldp=request.POST.get('olp')
+        oldp=request.POST.get('oldpass')
         newp=request.POST.get('psw')
         retypep=request.POST.get('npsw')
         print("old password",oldp)
@@ -73,7 +78,7 @@ def passchange(request):
              p=regi.password
              print("db password",p)
              if (oldp==p):
-                 regi.Password=newp
+                 regi.password=newp
                  regi.save()
                  rest="Your Password has been changed successfully"
                  print("password updated!")
@@ -89,9 +94,22 @@ def passchange(request):
         return render(request,'changepassword(1).html')
                        
 def editpro(request):
-    my_dict={}
-    return render(request,'editprofile.html.html',context=my_dict)
+    if not request.session.has_key('email'):
+        return redirect ('/login/')
+    userdetail=Reg.objects.get(email=request.session['email'])
+    if request.method=='POST':
+        detail=Reg.objects.get(email=request.POST.get('em'))
+        detail.fname=request.POST.get('nm')
+        detail.lname=request.POST.get('lm')
+        detail.birthday=request.POST.get('dob')
+        detail.save()
+        data=Reg.objects.get(email=request.session['email'])
+        return render(request,'Myprofile.html',{'user':data})
+    else:
+            return render(request,'editprofile.html.html',{'user':userdetail})
 def helpands(request):
+    if not request.session.has_key('email'):
+        return redirect('/login/')
     if request.method=='POST':
           if request.POST.get('sub') and request.POST.get('txt'):
               post=HandS()
@@ -112,7 +130,7 @@ def login(request):
         if k>0:
             print("valid credentials")
             request.session['email']=us
-            return render(request,'Myprofile.html',{})
+            return render(request,'doctorspanelmain.html',{})
               
                
         else:      
@@ -151,11 +169,12 @@ def forgotpass(request):
 def lcancer(request):
     my_dict={}
     return render(request,'lungcancer.html',context=my_dict)
-def mprofile(request):
-     def myprofile(request):
-         if not request.session.has_key('email'):
-              return redirect('/login/')
+
+def myprofile(request):
+     if not request.session.has_key('email'):
+         return redirect('/login/')
      userdetail= Reg.objects.get(email=request.session['email'])
+     
 
      return render(request,'Myprofile.html',{'user':userdetail}) 
     
@@ -174,6 +193,8 @@ def register(request):
     else:
                 return render(request,'register.html')
 def review(request):
+    if not request.session.has_key('email'):
+        return redirect('/login/')
     if request.method=='POST':
            if request.POST.get('r') and request.POST.get('t'):
                post=Review()
@@ -828,6 +849,11 @@ def ccancersymptoms(request):
     my_dict={}
     return render(request,'ccancerSYMPTOMS.html',context=my_dict)
 
+
+def ccancervis(request):
+    my_dict={}
+    return render(request,'ccancerVISUALIZATIONS.html',context=my_dict)
+
 def doctorspanelmain(request):
     my_dict={}
     return render(request,'doctorspanelmain.html',context=my_dict)
@@ -880,8 +906,12 @@ def lcancerprediction(request):
          classifier=DecisionTreeClassifier(criterion='gini',random_state=0)
          classifier.fit(x_train,y_train)
          y_pred=classifier.predict(x_test)
-         print(y_pred[15])
-         return HttpResponse("okay")
+         if y_pred[15]==1:
+             return render(request,'detected.html')
+         else:
+             return render(request,'notdetected.html')
+
+         
     else:
      my_dict={}
      return render(request,'lungprediction.html',context=my_dict)
@@ -954,7 +984,11 @@ def bcancerpredict(request):
          
 #predicting new result
          y_pred=classifier.predict(x)
-         return HttpResponse ("okay")
+         if y_pred[569]==1:
+             return render(request,'detected.html')
+         else:
+             return render(request,'notdetected.html')
+
     else:
      my_dict={}
      return render(request,'bcancerprediction.html',context=my_dict)
@@ -965,6 +999,7 @@ def bcancerpredict(request):
 
 def ccancerpredict(request):
     if request.method=='POST':
+         Age=request.POST.get('age')
          Number_of_sexual_partners = request.POST.get('num')
          First_sexual_intercourse=request.POST.get('fs') 
          Num_of_pregnancies= request.POST.get('np')
@@ -990,8 +1025,6 @@ def ccancerpredict(request):
          STDs_HepatitisB=request.POST.get('stdhb')
          STDs_HPV=request.POST.get('stdhp')
          STDs_Num_of_diagnosis=request.POST.get('stdnum')
-         STDs_Time_since_first=request.POST.get('stdfrst')
-         STDs_Time_since_last=request.POST.get('stdlst')
          Dx_Cancer=request.POST.get('dc')
          Dx_CIN=request.POST.get('dcin')
          Dx_HPV=request.POST.get('dhp')
@@ -999,42 +1032,40 @@ def ccancerpredict(request):
          Hinselmann=request.POST.get('hin')
          Schiller=request.POST.get('sch')
          Citology=request.POST.get('cit')
-         pkl_filename = "pickle_model24.pkl"
+         pkl_filename = "pickle_modelcervical.pkl"
          with open(pkl_filename, 'rb') as file:
-             pickle_model24 = pickle.load(file)
-         classifier=pickle_model24
-         df=pd.read_csv('cervical_cancer.csv')
-         x=df.iloc[:,2:35]
-         y=df.iloc[:,35]
+             pickle_modelcervical = pickle.load(file)
+         classifier=pickle_modelcervical
+         dataset=pd.read_csv('cervical.csv')
+         dataset=dataset.dropna()
+         
          def abc(x):
              if x=='?':
                  return 'NaN'
              else:
                  return x
-         for j in range (0,36):
-                 df.iloc[:,j]=df.iloc[:,j].apply(abc)
-        
-        
-        
-         x=df.iloc[:,:]
-         y=df.iloc[:,28]
-         print(df.iloc[:5,2])
+                 
          from sklearn.impute import SimpleImputer
-         imputer = SimpleImputer(missing_values=np.NaN, strategy='mean')
-         imputer = imputer.fit(x.iloc[:, :])
-         x.iloc[:, :] = imputer.transform(x.iloc[:,:])
 
-         print("col",x.dtypes)
+         imputer=SimpleImputer(missing_values=np.NaN,strategy="mean")
+         imputer=imputer.fit(dataset.iloc[:,1:25])
+         dataset.iloc[:,1:25]=imputer.transform(dataset.iloc[:,1:25])
+         dataset = dataset.dropna()
+         col=[0,3,4,5,6,8,9,10,11,12,13,16,17,19,22,25,26,27,28,29,30,31,32]
+         x=dataset.iloc[:,0:33].values
+         y=dataset.iloc[:,33].values
+         
          print("before",x.shape)
-         x=np.append(x,[[Number_of_sexual_partners,First_sexual_intercourse,Num_of_pregnancies,Smokes, years,Smokespacks,
+         x=np.append(x,[[Age,Number_of_sexual_partners,First_sexual_intercourse,Num_of_pregnancies,Smokes, years,Smokespacks,
          Hormonal_Contra,Hormonal_Contra_years,IUD,IUD_years,STDs,STDs_number,
          STDs_cond,STDs_cervical_cond,STDs_vaginal_cond,
          STDs_v_perineal_cond,
          STDs_syphilis,STDs_pel_infla_disease,STDs_gen_herpes,STDs_molluscum_contag,STDs_AIDS,STDs_HIV,
          STDs_HepatitisB,STDs_HPV,
-         STDs_Num_of_diagnosis,STDs_Time_since_first,STDs_Time_since_last,
+         STDs_Num_of_diagnosis,
          Dx_Cancer,Dx_CIN,Dx_HPV,Dx,Hinselmann,Schiller,Citology]],axis=0)
          print("after",x.shape)
+         print(x[858])
          from sklearn.preprocessing import StandardScaler
          sc=StandardScaler()
          x=sc.fit_transform(x)
@@ -1042,13 +1073,150 @@ def ccancerpredict(request):
          
 #predicting new result
          y_pred=classifier.predict(x)
-         return HttpResponse ("okay")
+         if y_pred[858]==1:
+             return render(request,'detected.html')
+         else:
+             return render(request,'notdetected.html')
+
+         
 
     else:
      my_dict={}
      return render(request,'cervicalcancerprediction.html',context=my_dict)
 
+
+
+def logout(request):
+    if not request.session.has_key('email'):
+        return redirect('/login')
+    del request.session['email']
+    return redirect('/login')
+
+
+
+def handle_uploaded_file(f,name):
+    destination = open(name, 'wb+')
+    for chunk in f.chunks():
+         destination.write(chunk)
+         destination.close()
+
+def skinc(request):
+    if request.method=='POST':
+        f=request.FILES['sentFile'] 
+        handle_uploaded_file(f,f.name) 
+        classifier=keras.models.load_model('skincancer.h5')  
+        test_image=image.load_img(f.name,target_size=(64,64))  
+        test_image=image.img_to_array(test_image)
+        test_image=np.expand_dims(test_image,axis=0)
+        result=classifier.predict(test_image)
+        print(result)
+        if result[0][0]>=0.5:
+            return render(request,'detected.html')
+        else:
+            return render(request,'notdetected.html')
+    else:
+         return render(request,'skincancer.html')
+
+
+def vis1(request):
+     if request.method=='POST':
+         x = request.POST.get('t1')
+         print(x)
+         x="Smokes_packs_years"
+         fig=plt.figure(figsize=(6, 7), dpi=80,facecolor='w', edgecolor='w')
+         matplotlib.rcParams['axes.labelsize'] = 14
+         matplotlib.rcParams['xtick.labelsize'] = 8
+         matplotlib.rcParams['ytick.labelsize'] = 12
+         matplotlib.rcParams['text.color'] = 'k'
+         df = pd.read_csv('cervical.csv')
          
+         df=df.replace('?',0).astype(float)
+         df=df.astype(int)
+         b=[10,20,30,40,50,60,70,80,90]  
+         df['age-grp'] =pd.cut(df['Age'] ,bins=b)    
+         df.groupby('age-grp')[x].sum().plot.bar(title='Grouping of Age groups based on -'+x) 
+        
+         
+        
+         print("after frouping",df.shape )
+
+         buf = io.BytesIO()
+         plt.margins(0.8)
+# Tweak spacing to prevent clipping of tick-labels
+         plt.subplots_adjust(bottom=0.35)
+         plt.savefig(buf, format='png')
+
+         fig.savefig('abc.png')
+
+         plt.close(fig)
+         image = Image.open("abc.png")
+         draw = ImageDraw.Draw(image)
+
+         image.save(buf, 'PNG')
+         content_type="Image/png"
+         buffercontent=buf.getvalue()
+
+
+         graphic = base64.b64encode(buffercontent)
+         return render(request, 'graphic.html', {'graphic': graphic.decode('utf8')})
+     else:
+         return render(request,'cervis1.html')
+
+
+
+def vis2(request):
+     if request.method=='POST':
+         x = request.POST.get('t1')
+         print(x)
+         fig=plt.figure(figsize=(6, 7), dpi=80,facecolor='w', edgecolor='w')
+         matplotlib.rcParams['axes.labelsize'] = 14
+         matplotlib.rcParams['xtick.labelsize'] = 8
+         matplotlib.rcParams['ytick.labelsize'] = 12
+         matplotlib.rcParams['text.color'] = 'k'
+         df = pd.read_csv('cervical.csv')
+         
+         b=[10,20,30,40,50,60,70,80,90]  
+         df['age-grp'] =pd.cut(df['Age'] ,bins=b)    
+         df.groupby(['age-grp','Biopsy'])[x].sum().plot.barh(grid=True,title='Grouping of Age groups ans Biopsy based on -'+x)
+
+         buf = io.BytesIO()
+         plt.margins(0.8)
+# Tweak spacing to prevent clipping of tick-labels
+         plt.subplots_adjust(bottom=0.35)
+         plt.savefig(buf, format='png')
+
+         fig.savefig('abc.png')
+
+         plt.close(fig)
+         image = Image.open("abc.png")
+         draw = ImageDraw.Draw(image)
+
+         image.save(buf, 'PNG')
+         content_type="Image/png"
+         buffercontent=buf.getvalue()
+
+
+         graphic = base64.b64encode(buffercontent)
+         return render(request, 'graphic.html', {'graphic': graphic.decode('utf8')})
+     else:
+         return render(request,'cervis2.html')
+
+
+def predictormain(request):
+    my_dict={}
+    return render(request,'predictor.html',context=my_dict)
+
+
+def news(request):
+    my_dict={}
+    return render(request,'newsandresearch.html',context=my_dict)
+
+
+
+
+
+
+
 
 
 

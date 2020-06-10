@@ -1,33 +1,15 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+
 {%load static %}
-<html>
-<head>
-<title> </title>
-<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Project ADMIN - PANEL </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-    <!-- CSS files -->
-    <link rel="stylesheet" href="{%static "css/style.violet.css" %}">
-    <link rel="shortcut icon" href="{%static "images/favicon.png" %}">
-
-    <link rel="stylesheet" href="{%static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{%static "icofont/icofont.min.css" %}">
-
-      <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
- 
-      
- 
-
-
 
 <style>
 
 h1{
    
    font-size: 50px;
-   color: indigo;
+   color: palevioletred;
    font-family: Denk one;
    margin-left: 20px;
    margin-top: 30px;;
@@ -40,80 +22,7 @@ h1{
 
 
 
-</head>
 
-<body>
-    
-      <!-- navbar-->
-      <header class="header">
-        <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color:plum;"><a href="#" class="sidebar-toggler text-black-500 mr-4 mr-lg-5 lead" style="color: purple;"><i class="icofont icofont-medical-sign"></i> </a><a href="#" class="navbar-brand font-weight-bold text-uppercase text-base" style="color: purple;"> DOCTOR  </a>
-            
-            
-            
-          <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
-            
-            <li class="nav-item dropdown ml-auto"><a id="userInfo" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src={%static "images/main_ad.png" %} alt="Admin" style="max-width: 3.5rem;" class="img-fluid rounded-circle shadow"></a>
-               <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Akanksha handa</strong><small></small></a>
-                 <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a>
-                 <div class="dropdown-divider"></div><a href="" class="dropdown-item">Logout</a>
-               </div>
-             </li>
-           </ul>
-         </nav>
-       </header>
-       <div class="d-flex align-items-stretch">
-         <div id="sidebar" class="sidebar py-3" style="background-color:whitesmoke;">
-           <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">DASH <br>BOARD</div>
-           <ul class="sidebar-menu list-unstyled">
-               
-                <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="icofont icofont-tools mr-3 text-gray"></i><span style="color: purple;">My Account</span></a>
-               <div id="pages" class="collapse">
-                 <ul class="sidebar-menu list-unstyled border-left border-primary border-solid">
-                     <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5" style="color: purple;"> <span style="color: purple;">Profile </span></a></li>
-                     <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5"> <span style="color:purple;">Edit profile </span></a></li>
-                     
-                        </ul>
-               </div>
-             </li>
-               
-               
-             </ul>
-             
-             <div class="text-black-400 text-uppercase font-weight-bold small headings-font-family"></div>
-             <ul style="list-style-type: none" class="sidebar-menu list-unstyled">
-       
-                 <li class="sidebar-list-item"><a href="{% url 'doctorsp' %}" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: purple;">Lung Cancer</span></a></li>
-              
-               <li class="sidebar-list-item"><a href="{% url 'breastcancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: purple;">Breast Cancer</span></a></li>
-               
-               <li class="sidebar-list-item"><a href="{% url 'ccancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: purple;">Cervical Cancer</span></a></li>
-               
-               
-             </ul>
-           
-             
-             
-             
-            
-             
-             
-             
-           <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Your Queries</div>
-           <ul class="sidebar-menu list-unstyled">
-                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: purple;">Help and Support</span></a></li>
-              
-               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: purple;">Change Password</span></a></li>
-               
-               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: purple;">LOGOUT</span></a></li>
-               
-               
-               
-           </ul>
-         </div>
-         <div class="page-holder w-100 d-flex flex-wrap">
-            <div class="container-fluid" style="background-image: url({%static 'images/docback.jpg' %});height: 650px;background-repeat: no-repeat;background-size: cover;">
-            
-             
 
 <h1 style="text-align: center;"> PICTORIAL REPRESENTATION OF BREAST CANCER </h1>
 
@@ -176,7 +85,7 @@ h1{
 <script src={%static "js/front.js" %}></script>
 </div>
 
-
+{% endblock %}
 </body>
 
 </html>

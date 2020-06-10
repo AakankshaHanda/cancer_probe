@@ -10,9 +10,10 @@
     <!-- CSS files -->
     <link rel="stylesheet" href="{%static "css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{%static "icofont/icofont.css" %}">
-    <link rel="stylesheet" href="{%static "sidebar/style.violet.css" %}">
+    <link rel="stylesheet" href="{%static "sidebar/style.pink.css" %}">
     <link rel="shortcut icon" href=" {%static "images/favicon.png" %}">
       <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
+      <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
  
       
       
@@ -43,6 +44,13 @@
     		box-shadow: 20px 20px 10px #ccc;
     		text-align: center;
         border: 3px solid white;}
+
+
+        label{
+          color: palevioletred;
+          font-size: 20px;
+          font-family: Righteous;
+        }
       
       </style>
       
@@ -51,33 +59,34 @@
   <body> 
     <!-- navbar-->
     <header class="header">
-      <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color:plum;"><a href="#" class="sidebar-toggler text-black-500 mr-4 mr-lg-5 lead" style="color: purple;"><i class="icofont icofont-medical-sign"></i> </a><a href="#" class="navbar-brand font-weight-bold text-uppercase text-base" style="color: purple;"> DOCTOR  </a>
+      <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color:pink;"><a href="#" class="sidebar-toggler text-black-500 mr-4 mr-lg-5 lead" style="color: pale;"><i class="icofont icofont-medical-sign"></i> </a><a href="#" class="navbar-brand font-weight-bold text-uppercase text-base" style="color: palevioletred;"> DOCTOR  </a>
         <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
             
           <li class="nav-item dropdown ml-auto"><a id="userInfo" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="{%static "images/main_ad.png" %}" alt="Admin" style="max-width: 3.5rem;" class="img-fluid rounded-circle shadow"></a>
             <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Akanksha handa</strong><small></small></a>
-              <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a>
-              <div class="dropdown-divider"></div><a href="" class="dropdown-item">Logout</a>
+              <div class="dropdown-divider"></div><a href="{% url 'doctorspanelmain' %}" class="dropdown-item">Dashboard</a>
+              <div class="dropdown-divider"></div><a href="{% url 'login' %}" class="dropdown-item">Login</a>
             </div>
           </li>
         </ul>
       </nav>
     </header>
     <div class="d-flex align-items-stretch">
-      <div id="sidebar" class="sidebar py-3" style="background-color:whitesmoke;">
-        <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">DASH <br>BOARD</div>
+      <div id="sidebar" class="sidebar py-3" style="background-color:whitesmoke; background: rgb(250,218,231); font-family: righteous;">
+        <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family" style="color: palevioletred;">AAKANKSHA <br>HANDA</div>
         <ul class="sidebar-menu list-unstyled">
             
-             <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="icofont icofont-tools mr-3 text-gray"></i><span style="color: purple;">My Account</span></a>
+             <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="icofont icofont-tools mr-3 text-gray"></i><span style="color:palevioletred;">My Account</span></a>
             <div id="pages" class="collapse">
               <ul class="sidebar-menu list-unstyled border-left border-primary border-solid">
-                  <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5" style="color: purple;"> <span style="color: purple;">Profile </span></a></li>
-                  <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5"> <span style="color:purple;">Edit profile </span></a></li>
+                  <li class="sidebar-list-item"><a href="{% url 'mprofile' %}" class="sidebar-link text-muted pl-lg-5" style="color: palevioletred;"> <span style="color: palevioletred;">Profile </span></a></li>
+                  <li class="sidebar-list-item"><a href="{% url 'editpro' %}" class="sidebar-link text-muted pl-lg-5"> <span style="color:palevioletred;">Edit profile </span></a></li>
                   
                      </ul>
             </div>
           </li>
-            
+          <li class="sidebar-list-item"><a href="{% url 'index' %}" class="sidebar-link text-muted"><i class="icofont icofont-home mr-3" style="color:gray;"></i><span style="color: palevioletred;">Home</span></a></li>
+              
             
           </ul>
           
@@ -86,11 +95,29 @@
           <div class="text-black-400 text-uppercase font-weight-bold small headings-font-family"></div>
           <ul style="list-style-type: none" class="sidebar-menu list-unstyled">
     
-              <li class="sidebar-list-item"><a href="{% url 'doctorsp' %}" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: purple;">Lung Cancer</span></a></li>
+              <li class="sidebar-list-item"><a href="{% url 'doctorsp' %}" class="sidebar-link text-muted"><i class="icofont icofont-lungs mr-3 text-gray"></i><span style="color: palevioletred;">Lung Cancer</span></a></li>
            
-            <li class="sidebar-list-item"><a href="{% url 'breastcancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: purple;">Breast Cancer</span></a></li>
+            <li class="sidebar-list-item"><a href="{% url 'breastcancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-infinite mr-3 text-gray"></i><span style="color: palevioletred;">Breast Cancer</span></a></li>
             
-            <li class="sidebar-list-item"><a href="{% url 'ccancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: purple;">Cervical Cancer</span></a></li>
+            <li class="sidebar-list-item"><a href="{% url 'ccancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-dna-alt-2 mr-3 text-gray"></i><span style="color: palevioletred;">Cervical Cancer</span></a></li>
+            
+            <li class="sidebar-list-item"><a href="{% url 'doctors' %}" class="sidebar-link text-muted"><i class="icofont icofont-doctor mr-3 text-gray"></i><span style="color: palevioletred;">Doctors</span></a></li>
+              
+            <li class="sidebar-list-item"><a href="{% url 'hospitals' %}" class="sidebar-link text-muted"><i class="icofont icofont-hospital mr-3 text-gray"></i><span style="color: palevioletred;">Hospitals</span></a></li>
+            
+            <li class="sidebar-list-item"><a href="{% url 'NGO' %}" class="sidebar-link text-muted"><i class="icofont icofont-handshake-deal mr-3 text-gray"></i><span style="color: palevioletred;">Ngos</span></a></li>
+            
+            <li class="sidebar-list-item"><a href="{% url 'nnews' %}" class="sidebar-link text-muted"><i class="icofont icofont-news mr-3 text-gray"></i><span style="color: palevioletred;">News And Research</span></a></li>
+         
+
+
+            
+            
+            
+            
+            
+            
+            <li class="sidebar-list-item"><a href="{% url 'predict' %}" class="sidebar-link text-muted"><i class="icofont icofont-circuit mr-3 text-gray"></i><span style="color: palevioletred;">Go To Predictor</span></a></li>
             
             
           </ul>
@@ -112,11 +139,11 @@
           
         <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Your Queries</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: purple;">Help and Support</span></a></li>
+              <li class="sidebar-list-item"><a href="{% url 'helpands' %}" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: palevioletred;">Help and Support</span></a></li>
            
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: purple;">Change Password</span></a></li>
+            <li class="sidebar-list-item"><a href="{% url 'passchange' %}" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: palevioletred;">Change Password</span></a></li>
             
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: purple;">LOGOUT</span></a></li>
+            <li class="sidebar-list-item"><a href="{% url 'login' %}" class="sidebar-link text-muted"><i class="icofont icofont-login mr-3 text-gray"></i><span style="color: palevioletred;">LOGIN</span></a></li>
             
             
             
@@ -125,131 +152,127 @@
       <div class=" container-fluid page-holder w-100 d-flex position-relative">
           <div class="row w-100">
           <div class="title col-md-12 text-center ">
-              <h1 class="title-text mt-3" style="font-size: 50px; font-family: denk one; color: purple; ">CERVICAL CANCER PREDICTION</h1>
+              <h1 class="title-text mt-3" style="font-size: 50px; font-family: denk one; color: palevioletred; ">CERVICAL CANCER PREDICTION</h1>
               
               </div>
               
               
               <form class=" custom-form  position-absolute" method="POST" action="">
                 {% csrf_token %}
-                  <div class="form-div d-flex mb-4"> <label class="form-label col-2 text-center" style="">Number_of_sexual_partners: </label>  <input type="number" class="form-control rounded-pill" name="num" placeholder="Enter value" min="1" max="28" size="50">
-                  </div>
-                  <div class="form-div d-flex mb-5"> <label class="form-label  col-2 text-center">First_sexual_intercourse: </label>   <input type="number" class="form-control rounded-pill"  name="fs" placeholder="Enter value" min="10" max="32" size="50"></div>
 
-                  <div class="form-div d-flex mb-5"> <label class="form-label  col-2 text-center">Num_of_pregnancies: </label>   <input type="number" class="form-control rounded-pill"  name="fs" placeholder="Enter value" min="0" max="11" size="50"></div>
+                <div class="form-div d-flex mb-4"> <div><label class="form-label col-2 text-center" style="">Age: </label> </div> <input type="number" class="form-control rounded-pill" name="age" placeholder="Enter value" min="13" max="84" size="50">
+                </div>
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label col-2 text-center" style="">Number_of_sexual_partners: </label> </div>  <input type="number" class="form-control rounded-pill" name="num" placeholder="Enter value" min="1" max="28" size="50">
+                  </div>
+                  <div class="form-div d-flex mb-5"> <div> <label class="form-label  col-2 text-center">First_sexual_intercourse: </label>  </div> <input type="number" class="form-control rounded-pill"  name="fs" placeholder="Enter value" min="10" max="32" size="50"></div>
+
+                  <div class="form-div d-flex mb-5"> <div> <label class="form-label  col-2 text-center">Num_of_pregnancies: </label> </div>  <input type="number" class="form-control rounded-pill"  name="np" placeholder="Enter value" min="0" max="11" size="50"></div>
                    
-                   <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Smokes:</label>   <input type="number"class="form-control rounded-pill"   name="smk" placeholder="Enter value" min="0" max="1" size="60"> 
+                   <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">Smokes:</label>  </div> <input type="number"class="form-control rounded-pill"   name="smk" placeholder="Enter value" min="0" max="1" size="60"> 
                   </div>
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">years: </label>   <input type="number"class="form-control rounded-pill"   name="yrs" placeholder="Enter value" min="0" max="37" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">years: </label> </div>  <input type="number"class="form-control rounded-pill"   name="yrs" placeholder="Enter value" min="0" max="37" size="60"> 
                   </div>
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Smokespacks: </label>   <input type="number"class="form-control rounded-pill"   name="smo_packs" placeholder="Enter value" min="0" max="37" size="70"> 
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">Smokespacks: </label> </div>  <input type="number"class="form-control rounded-pill"   name="smo_packs" placeholder="Enter value" min="0" max="37" size="70"> 
                   </div>
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Hormonal_Contra: </label><input type="number"class="form-control rounded-pill"   name="hc" placeholder="Enter value" min="0" max="1" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">Hormonal_Contra: </label></div><input type="number"class="form-control rounded-pill"   name="hc" placeholder="Enter value" min="0" max="1" size="60"> 
                   </div>
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Hormonal_Contra_years: </label>  <input type="number"class="form-control rounded-pill"   name="hcy" placeholder="Enter value" min="0.0" max="0.42" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">Hormonal_Contra_years: </label> </div> <input type="number"class="form-control rounded-pill"   name="hcy" placeholder="Enter value" min="0.0" max="0.42" size="60"> 
                   </div>
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">IUD: </label>   <input type="number"class="form-control rounded-pill"   name="iud" placeholder="Enter value" min="0" max="1" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">IUD: </label> </div>  <input type="number"class="form-control rounded-pill"   name="iud" placeholder="Enter value" min="0" max="1" size="60"> 
                   </div>
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">IUD _years: </label>   <input type="number"class="form-control rounded-pill"   name="iudy" placeholder="Enter value" min="0.10" max="0.30" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs: </label>  <input type="number" class="form-control rounded-pill"   name="std" placeholder="Enter value" min="0" max="1" size="60"> 
+                  <div class="form-div d-flex mb-4"><div> <label class="form-label  col-2 text-center">IUD _years: </label> </div>  <input type="number"class="form-control rounded-pill"   name="iudy" placeholder="Enter value" min="0.10" max="0.30" size="60"> 
                   </div>
                   
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs _number: </label>   <input type="number"class="form-control rounded-pill"   name="stdy" placeholder="Enter value" min="0" max="4" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">STDs: </label> </div> <input type="number" class="form-control rounded-pill"   name="std" placeholder="Enter value" min="0" max="1" size="60"> 
                   </div>
                   
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_cond: </label>   <input type="number"class="form-control rounded-pill"   name="stdc" placeholder="Enter value" min="0" max="1" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">STDs _number: </label>  </div> <input type="number"class="form-control rounded-pill"   name="stdy" placeholder="Enter value" min="0" max="4" size="60"> 
                   </div>
                   
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_cervical_cond: </label>   <input type="number"class="form-control rounded-pill"   name="stdcc" placeholder="Enter value" min="0" max="0" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">STDs_cond: </label>  </div> <input type="number"class="form-control rounded-pill"   name="stdc" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  <div class="form-div d-flex mb-4"><div><label class="form-label  col-2 text-center">STDs_cervical_cond: </label> </div>  <input type="number"class="form-control rounded-pill"   name="stdcc" placeholder="Enter value" min="0" max="0" size="60"> 
                   </div>
                   
 
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_vaginal_cond: </label>   <input type="number"class="form-control rounded-pill"   name="stdvc" placeholder="Enter value" min="0" max="1" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">STDs_vaginal_cond: </label> </div>  <input type="number"class="form-control rounded-pill"   name="stdvc" placeholder="Enter value" min="0" max="1" size="60"> 
                   </div>
                   
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_v_perineal_cond: </label>   <input type="number"class="form-control rounded-pill"   name="stdv" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_syphilis: </label>   <input type="number"class="form-control rounded-pill"   name="stds" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_pel_ infla_disease: </label>  <input type="number"class="form-control rounded-pill"   name="stdpe" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_gen_herpes: </label>   <input type="number"class="form-control rounded-pill"   name="stdge" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_molluscum_contag: </label>   <input type="number"class="form-control rounded-pill"   name="stdmo" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_AIDS: </label>   <input type="number"class="form-control rounded-pill"   name="stdai" placeholder="Enter value" min="0" max="0" size="60"> 
-                  </div>
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_HIV: </label>   <input type="number"class="form-control rounded-pill"   name="stdhi" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_Hepatitis B: </label>   <input type="number"class="form-control rounded-pill"   name="stdhb" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_HPV: </label>   <input type="number"class="form-control rounded-pill"   name="stdhp" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_Num_of_diagnosis: </label>  &nbsp; &nbsp; &nbsp; <input type="number"class="form-control rounded-pill"   name="stdnum" placeholder="Enter value" min="0" max="3" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs_Time_since_first: </label>   <input type="number"class="form-control rounded-pill"   name="stdfrst" placeholder="Enter value" min="1" max="22" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">STDs: Time_since_last: </label>   <input type="number"class="form-control rounded-pill"   name="stdlst" placeholder="Enter value" min="1" max="22" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Dx_Cancer: </label> <input type="number"class="form-control rounded-pill"   name="dc" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Dx_CIN: </label>   <input type="number"class="form-control rounded-pill"   name="dcin" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Dx_HPV: </label>   <input type="number"class="form-control rounded-pill"   name="dhp" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Dx: </label>   <input type="number"class="form-control rounded-pill"   name="d" placeholder="Enter value" min="0" max="1" size="60"> 
-                  </div>
-                  
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Hinselmann: </label>  <input type="number"class="form-control rounded-pill"   name="hin" placeholder="Enter value" min="0" max="1" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">STDs_v_perineal_cond: </label> </div>  <input type="number"class="form-control rounded-pill"   name="stdv" placeholder="Enter value" min="0" max="1" size="60"> 
                   </div>
                   
                   
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Schiller: </label>   <input type="number"class="form-control rounded-pill"   name="sch" placeholder="Enter value" min="0" max="1" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">STDs_syphilis: </label>  </div> <input type="number"class="form-control rounded-pill"   name="stds" placeholder="Enter value" min="0" max="1" size="60"> 
                   </div>
                   
                   
-                  <div class="form-div d-flex mb-4"> <label class="form-label  col-2 text-center">Citology: </label> &nbsp; &nbsp; &nbsp;  <input type="number"class="form-control rounded-pill"   name="cit" placeholder="Enter value" min="0" max="1" size="60"> 
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">STDs_pel_ infla_disease: </label> </div> <input type="number"class="form-control rounded-pill"   name="stdpe" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">STDs_gen_herpes: </label> </div>  <input type="number"class="form-control rounded-pill"   name="stdge" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">STDs_molluscum_contag: </label> </div>  <input type="number"class="form-control rounded-pill"   name="stdmo" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">STDs_AIDS: </label> </div>  <input type="number"class="form-control rounded-pill"   name="stdai" placeholder="Enter value" min="0" max="0" size="60"> 
+                  </div>
+                  
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">STDs_HIV: </label> </div>  <input type="number"class="form-control rounded-pill"   name="stdhi" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">STDs_Hepatitis B: </label>  </div> <input type="number"class="form-control rounded-pill"   name="stdhb" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">STDs_HPV: </label> </div>   <input type="number"class="form-control rounded-pill"   name="stdhp" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">STDs_Num_of_diagnosis: </label> </div>  &nbsp; &nbsp; &nbsp; <input type="number"class="form-control rounded-pill"   name="stdnum" placeholder="Enter value" min="0" max="3" size="60"> 
+                  </div>
+                
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">Dx_Cancer: </label> </div><input type="number"class="form-control rounded-pill"   name="dc" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div> <label class="form-label  col-2 text-center">Dx_CIN: </label> </div>  <input type="number"class="form-control rounded-pill"   name="dcin" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">Dx_HPV: </label> </div>   <input type="number"class="form-control rounded-pill"   name="dhp" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">Dx: </label> </div>  <input type="number"class="form-control rounded-pill"   name="d" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">Hinselmann: </label> </div>  <input type="number"class="form-control rounded-pill"   name="hin" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">Schiller: </label> </div>  <input type="number"class="form-control rounded-pill"   name="sch" placeholder="Enter value" min="0" max="1" size="60"> 
+                  </div>
+                  
+                  
+                  <div class="form-div d-flex mb-4"> <div><label class="form-label  col-2 text-center">Citology: </label> </div>  <input type="number"class="form-control rounded-pill"   name="cit" placeholder="Enter value" min="0" max="1" size="60"> 
                   </div>
                   
                    
@@ -260,7 +283,7 @@
                   
                   
                   
-                <button class="button btn-lg text-center ml-3" type="submit" style="background-color: purple; color: white;"> SUBMIT</button>
+                <button class="button btn-lg text-center ml-3" type="submit" style="background-color: palevioletred; color: white;"> SUBMIT</button>
 
                   
                   
@@ -276,12 +299,13 @@
         </div>
       </div>
         
-        
       <script src="{%static "js/jquery-3.4.1.min.js" %}"></script>
       <script src="{%static "js/bootstrap.bundle.min.js" %}"></script>
       <script src="{%static "sidebar/front.js" %}"></script>
-          
+  
         
         
+        
+      
     </body>
 </html>

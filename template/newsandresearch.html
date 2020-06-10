@@ -1,0 +1,250 @@
+{%load static %}
+<html>
+<head>
+<title> </title>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project DOCTORS- PANEL </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!-- CSS files -->
+    <link rel="stylesheet" href="{%static "css/style.pink.css" %}">
+    <link rel="shortcut icon" href="{%static "images/favicon.png" %}">
+
+    <link rel="stylesheet" href="{%static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{%static "icofont/icofont.min.css" %}">
+
+      <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
+ 
+      <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+ 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
+      <link href="" rel="stylesheet" type="text/css">
+      <title></title>
+      
+        
+        
+      
+
+
+<style>
+
+h1{
+   
+   font-size: 50px;
+   color: palevioletred;
+   font-family: Denk one;
+   margin-left: 20px;
+   margin-top: 30px;;
+
+
+
+   .news-area{
+          width: 100%;
+          justify-content: space-around;
+        }
+  
+        .news-photo{
+          width: 20%;
+        }
+        .news-text{
+          width: 75%;
+        }
+  
+
+
+}
+
+
+
+</style>
+
+
+
+
+</head>
+
+<body>
+    
+      <!-- navbar-->
+      <header class="header">
+        <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color:pink;"><a href="#" class="sidebar-toggler text-black-500 mr-4 mr-lg-5 lead" style="color: palevioletred;"><i class="icofont icofont-medical-sign"></i> </a><a href="#" class="navbar-brand font-weight-bold text-uppercase text-base" style="color: palevioletred;"> DOCTOR  </a>
+            
+            
+            
+          <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+            
+            <li class="nav-item dropdown ml-auto"><a id="userInfo" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src={%static "images/main_ad.png" %} alt="Admin" style="max-width: 3.5rem;" class="img-fluid rounded-circle shadow"></a>
+               <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Akanksha handa</strong><small></small></a>
+                 <div class="dropdown-divider"></div><a href="{% url 'doctorspanelmain' %}" class="dropdown-item">Dashboard</a>
+                 <div class="dropdown-divider"></div><a href="{% url 'login' %}" class="dropdown-item">Login</a>
+               </div>
+             </li>
+           </ul>
+         </nav>
+       </header>
+       <div class="d-flex align-items-stretch">
+         <div id="sidebar" class="sidebar py-3" style="background-color:whitesmoke; background: rgb(250,218,231); font-family: righteous;">
+           <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family" style="color: palevioletred;">Aakanksha  <br>Handa</div>
+           <ul class="sidebar-menu list-unstyled">
+               
+                <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="icofont icofont-tools mr-3 text-gray"></i><span style="color: palevioletred;">My Account</span></a>
+               <div id="pages" class="collapse">
+                 <ul class="sidebar-menu list-unstyled border-left border-primary border-solid">
+                     <li class="sidebar-list-item"><a href="{% url 'mprofile' %}" class="sidebar-link text-muted pl-lg-5" style="color:palevioletred;"> <span style="color: palevioletred;">Profile </span></a></li>
+                     <li class="sidebar-list-item"><a href="{% url 'editpro' %}" class="sidebar-link text-muted pl-lg-5"> <span style="color:palevioletred;">Edit profile </span></a></li>
+                     
+                        </ul>
+               </div>
+             </li>
+               
+             <li class="sidebar-list-item"><a href="{% url 'index' %}" class="sidebar-link text-muted"><i class="icofont icofont-home mr-3" style="color:gray;"></i><span style="color: palevioletred;">Home</span></a></li>
+              
+
+
+
+             </ul>
+             
+             <div class="text-black-400 text-uppercase font-weight-bold small headings-font-family"></div>
+             <ul style="list-style-type: none" class="sidebar-menu list-unstyled">
+       
+                 <li class="sidebar-list-item"><a href="{% url 'doctorsp' %}" class="sidebar-link text-muted"><i class="icofont icofont-lungs mr-3 text-gray"></i><span style="color: palevioletred;">Lung Cancer</span></a></li>
+              
+               <li class="sidebar-list-item"><a href="{% url 'breastcancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-infinite mr-3 text-gray"></i><span style="color: palevioletred;">Breast Cancer</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'ccancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-dna-alt-2 mr-3 text-gray"></i><span style="color: palevioletred;">Cervical Cancer</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'doctors' %}" class="sidebar-link text-muted"><i class="icofont icofont-doctor mr-3 text-gray"></i><span style="color: palevioletred;">Doctors</span></a></li>
+              
+               <li class="sidebar-list-item"><a href="{% url 'hospitals' %}" class="sidebar-link text-muted"><i class="icofont icofont-hospital mr-3 text-gray"></i><span style="color: palevioletred;">Hospitals</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'NGO' %}" class="sidebar-link text-muted"><i class="icofont icofont-handshake-deal mr-3 text-gray"></i><span style="color: palevioletred;">Ngos</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'nnews' %}" class="sidebar-link text-muted"><i class="icofont icofont-news mr-3 text-gray"></i><span style="color: palevioletred;">News And Research</span></a></li>
+            
+   
+   
+
+
+
+
+
+               <li class="sidebar-list-item"><a href="{% url 'predict' %}" class="sidebar-link text-muted"><i class="icofont icofont-circuit mr-3 text-gray"></i><span style="color: palevioletred;">Go To Predictor</span></a></li>
+           
+               
+             </ul>
+           
+             
+             
+             
+            
+             
+             
+             
+           <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Your Queries</div>
+           <ul class="sidebar-menu list-unstyled">
+                 <li class="sidebar-list-item"><a href="{% url 'helpands' %}" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: palevioletred;">Help and Support</span></a></li>
+              
+               <li class="sidebar-list-item"><a href="{% url 'passchange' %}" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: palevioletred;">Change Password</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'log' %}" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: palevioletred;">LOGOUT</span></a></li>
+               
+               
+               
+           </ul>
+         </div>
+         <div class="page-holder w-100 d-flex flex-wrap">
+
+    
+
+  
+  
+    
+    <div class="container-fluid" style="background-image: url({%static 'images/loginimg.jpg' %});background-repeat: no-repeat;background-size: cover;height: 2150px;">
+      <div class="row">
+        
+      <div class="col-md-12 text-center title-div pt-5">
+        <h1 class="text" style="font-family: righteous; font-size: 65px;">
+          CANCER NEWS
+        </h1>
+      </div>
+      <div class="news-area d-flex p-5" >
+        <div class="news-photo" >
+          <img src="{%static "images/cancer-news-image.jfif" %}" style="width: 250px;" alt="" class="pic-1">
+        </div>
+        <div class="news-text px-3"style="font-size: 20px;">
+          <p style="font-size: 20px; font-weight: bold;">Cancer Cells Switch Sugar for Fatty Acids to Spread Around the Body</p>
+          <h4 style="font-size: 20px; color: maroon; font-family: righteous;" >Researchers have discovered a crucial “change” that occurs in cancer cells that enables them to spread throughout the body. By changing their “diet”, the cancer cells can invade new sites where energy sources – such as glucose – are limited. Research conducted by a team from The Institute of Cancer Research reveals that a protein called AKR1B10 helps the cells adapt the way in which they get their energy. When levels of AKR1B10 are high it reduces the cells’ dependency on sugar as fuel and increases their ability to utilize fatty acids as an alternative source.</h3>
+        </div>  
+      </div>
+       <div class="news-area d-flex p-5" >
+        <div class="news-photo" >
+          <img src="{%static "images/3-cancer.jfif" %}" style="width: 250px;" alt="" class="pic-1">
+        </div>
+        <div class="news-text px-3"style="font-size: 20px;">
+          <p style="font-size: 20px; font-weight: bold;">Educational video may assist with decision to pursue hospice at the end of life for cancer patients</p>
+          <h4 style="font-size: 20px; color: maroon; font-family: righteous;">An educational video about hospice care can provide valuable information for patients with advanced cancer and their caregivers, improve perceptions of this quality form of care at the end of life, and increase its use. These are the findings of a study published early online in Cancer, a peer-reviewed journal of the American Cancer Society (ACS). Hospice delivers high-quality care to patients who are dying, and it typically uses less aggressive and less costly care at the end of life. Despite high patient and caregiver satisfaction with hospice, less than half of patients in the United States die while under hospice care and many use hospice for only several days.</h3>
+        </div>  
+      </div>
+      <div class="news-area d-flex p-5" >
+        <div class="news-photo" >
+                <img src="{%static "images/cancer-news-image.jfif" %}" style="width: 250px;" alt="" class="pic-1">
+        </div>
+        <div class="news-text px-3"style="font-size: 20px;">
+          <p style="font-size: 20px; font-weight: bold;">Largest ever study of radiosurgery for brain metastases from small cell lung cancer</p>
+          <h4 style="font-size: 20px; color: maroon; font-family: righteous;">The international First-line Radiosurgery for Small-Cell Lung Cancer (FIRE-SCLC) analysis led by University of Colorado Cancer Center researchers and published today in JAMA Oncology details clinical outcomes for 710 patients with brain metastases from small cell lung cancer treated with first-line stereotactic radiosurgery (SRS), without prior treatment with whole-brain radiation (WBRT) or prophylactic cranial irradiation (PCI). The study represented a substantial research effort including international collaborators from 28 individual centers and one prospective clinical trial from Asia, North America, and Europe. Following first-line SRS, the outcomes were encouraging overall with a median time to brain progression of 8.1 months and a median overall survival of 8.5 months.</h3>
+        </div>  
+      </div>
+      <div class="news-area d-flex p-5" >
+        <div class="news-photo" >
+          <img src="{%static "images/prostatecanc.jfif" %}" style="width: 250px;" alt="" class="pic-1">
+        </div>
+        <div class="news-text px-3"style="font-size: 20px;">
+          <p style="font-size: 20px; font-weight: bold;">Inherited mutation linked to higher prostate cancer risk in African American families</p>
+          <h4 style="font-size: 20px; color:maroon; font-family: righteous;">For years, researchers have known that men of African ancestry are at greater risk of developing prostate cancer with research suggesting that inherited factors may contribute to their greater risk. Now, a new USC study published in European Urology is the first to identify an inherited genetic variant associated with higher risk of prostate cancer in men of African descent that contributes to the clustering of prostate cancer cases within families.About 12% of men of African ancestry carry this particular variant in the genome, which increases their risk two-fold. The variant is not found in other populations," said Christopher Haiman, ScD, study author and Professor of Preventive Medicine, Keck School of Medicine of USC. "But it's even more common in families with a history of prostate cancer."</h3>
+        </div>  
+      </div>
+      <div class="news-area d-flex p-5" >
+        <div class="news-photo" >
+          <img src="{%static "images/cancer-news-image.jfif" %}" style="width: 250px;" alt="" class="pic-1">
+        </div>
+        <div class="news-text px-3"style="font-size: 20px;">
+          <p style="font-size: 20px; font-weight: bold;">Cancer Cells Switch Sugar for Fatty Acids to Spread Around the Body</p>
+          <h4 style="font-size: 20px; color: maroon; font-family: righteous;">Researchers have discovered a crucial “change” that occurs in cancer cells that enables them to spread throughout the body. By changing their “diet”, the cancer cells can invade new sites where energy sources – such as glucose – are limited. Research conducted by a team from The Institute of Cancer Research reveals that a protein called AKR1B10 helps the cells adapt the way in which they get their energy. When levels of AKR1B10 are high it reduces the cells’ dependency on sugar as fuel and increases their ability to utilize fatty acids as an alternative source.</h3>
+        </div>  
+      </div>
+      <div class="news-area d-flex p-5" >
+        <div class="news-photo">
+          <img src="{%static "images/3-cancer.jfif" %}" style="width: 250px;" alt="" class="pic-1">
+        </div>
+        <div class="news-text px-3"style="font-size: 20px;">
+          <p style="font-size: 20px; font-weight: bold;">Cancer Cells Switch Sugar for Fatty Acids to Spread Around the Body</p>
+          <h4 style="font-size: 20px; color: maroon; font-family: righteous;">Researchers have discovered a crucial “change” that occurs in cancer cells that enables them to spread throughout the body. By changing their “diet”, the cancer cells can invade new sites where energy sources – such as glucose – are limited. Research conducted by a team from The Institute of Cancer Research reveals that a protein called AKR1B10 helps the cells adapt the way in which they get their energy. When levels of AKR1B10 are high it reduces the cells’ dependency on sugar as fuel and increases their ability to utilize fatty acids as an alternative source.</h3>
+        </div>  
+      </div>
+      <div class="news-area d-flex p-5" >
+        <div class="news-photo">
+          <img src="{%static "images/prostatecanc.jfif" %}" style="width: 250px;" alt="" class="pic-1">
+        </div>
+        <div class="news-text px-3"style="font-size: 20px;">
+          <p style="font-size: 20px; font-weight: bold;">Cancer Cells Switch Sugar for Fatty Acids to Spread Around the Body</p>
+          <h4 style="font-size: 20px; color: maroon; font-family: righteous;">Researchers have discovered a crucial “change” that occurs in cancer cells that enables them to spread throughout the body. By changing their “diet”, the cancer cells can invade new sites where energy sources – such as glucose – are limited. Research conducted by a team from The Institute of Cancer Research reveals that a protein called AKR1B10 helps the cells adapt the way in which they get their energy. When levels of AKR1B10 are high it reduces the cells’ dependency on sugar as fuel and increases their ability to utilize fatty acids as an alternative source.</h3>
+        </div>  
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+    <script src="{%static "js/jquery-3.4.1.min.js" %}"></script>
+                <script src="{%static "js/bootstrap.bundle.min.js" %}"></script>
+                <script src="{%static "sidebar/front.js" %}"></script>
+
+
+
+  </body>
+  </html>

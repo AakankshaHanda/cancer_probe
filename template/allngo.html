@@ -1,6 +1,168 @@
-{% extends 'base.html' %}
 
-{% block content %}
+
+{%load static %}
+<html>
+<head>
+<title> </title>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project DOCTORS- PANEL </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!-- CSS files -->
+    <link rel="stylesheet" href="{%static "css/style.pink.css" %}">
+    <link rel="shortcut icon" href="{%static "images/favicon.png" %}">
+
+    <link rel="stylesheet" href="{%static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{%static "icofont/icofont.min.css" %}">
+
+      <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
+ 
+      <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+ 
+
+
+
+<style>
+
+h1{
+   
+   font-size: 50px;
+   color: palevioletred;
+   font-family: Denk one;
+   margin-left: 20px;
+   margin-top: 30px;;
+
+}
+
+
+</style>
+
+
+
+
+</head>
+
+<body>
+    
+      <!-- navbar-->
+      <header class="header">
+        <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color:pink;"><a href="#" class="sidebar-toggler text-black-500 mr-4 mr-lg-5 lead" style="color: palevioletred;"><i class="icofont icofont-medical-sign"></i> </a><a href="#" class="navbar-brand font-weight-bold text-uppercase text-base" style="color: palevioletred;"> DOCTOR  </a>
+            
+            
+            
+          <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+            
+            <li class="nav-item dropdown ml-auto"><a id="userInfo" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src={%static "images/main_ad.png" %} alt="Admin" style="max-width: 3.5rem;" class="img-fluid rounded-circle shadow"></a>
+               <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Akanksha handa</strong><small></small></a>
+                 <div class="dropdown-divider"></div><a href="{% url 'doctorspanelmain' %}" class="dropdown-item">Dashboard</a>
+                 <div class="dropdown-divider"></div><a href="{% url 'login' %}" class="dropdown-item">Login</a>
+               </div>
+             </li>
+           </ul>
+         </nav>
+       </header>
+       <div class="d-flex align-items-stretch">
+         <div id="sidebar" class="sidebar py-3" style="background-color:whitesmoke; background: rgb(250,218,231); font-family: righteous;">
+           <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family" style="color: palevioletred;">Aakanksha  <br>Handa</div>
+           <ul class="sidebar-menu list-unstyled">
+               
+                <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="icofont icofont-tools mr-3 text-gray"></i><span style="color: palevioletred;">My Account</span></a>
+               <div id="pages" class="collapse">
+                 <ul class="sidebar-menu list-unstyled border-left border-primary border-solid">
+                     <li class="sidebar-list-item"><a href="{% url 'mprofile' %}" class="sidebar-link text-muted pl-lg-5" style="color:palevioletred;"> <span style="color: palevioletred;">Profile </span></a></li>
+                     <li class="sidebar-list-item"><a href="{% url 'editpro' %}" class="sidebar-link text-muted pl-lg-5"> <span style="color:palevioletred;">Edit profile </span></a></li>
+                     
+
+
+                     
+                        </ul>
+               </div>
+               <li class="sidebar-list-item"><a href="{% url 'index' %}" class="sidebar-link text-muted"><i class="icofont icofont-home mr-3" style="color:gray;"></i><span style="color: palevioletred;">Home</span></a></li>
+              
+
+
+             </li>
+               
+               
+             </ul>
+             
+             <div class="text-black-400 text-uppercase font-weight-bold small headings-font-family"></div>
+             <ul style="list-style-type: none" class="sidebar-menu list-unstyled">
+       
+                 <li class="sidebar-list-item"><a href="{% url 'doctorsp' %}" class="sidebar-link text-muted"><i class="icofont icofont-lungs mr-3 text-gray"></i><span style="color: palevioletred;">Lung Cancer</span></a></li>
+              
+               <li class="sidebar-list-item"><a href="{% url 'breastcancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-infinite mr-3 text-gray"></i><span style="color: palevioletred;">Breast Cancer</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'ccancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-dna-alt-2 mr-3 text-gray"></i><span style="color: palevioletred;">Cervical Cancer</span></a></li>
+                   
+               <li class="sidebar-list-item"><a href="{% url 'doctors' %}" class="sidebar-link text-muted"><i class="icofont icofont-doctor mr-3 text-gray"></i><span style="color: palevioletred;">Doctors</span></a></li>
+              
+            <li class="sidebar-list-item"><a href="{% url 'hospitals' %}" class="sidebar-link text-muted"><i class="icofont icofont-hospital mr-3 text-gray"></i><span style="color: palevioletred;">Hospitals</span></a></li>
+            
+            <li class="sidebar-list-item"><a href="{% url 'NGO' %}" class="sidebar-link text-muted"><i class="icofont icofont-handshake-deal mr-3 text-gray"></i><span style="color: palevioletred;">Ngos</span></a></li>
+            
+            <li class="sidebar-list-item"><a href="{% url 'nnews' %}" class="sidebar-link text-muted"><i class="icofont icofont-news mr-3 text-gray"></i><span style="color: palevioletred;">News And Research</span></a></li>
+         
+
+
+
+
+
+        
+               <li class="sidebar-list-item"><a href="{% url 'predict' %}" class="sidebar-link text-muted"><i class="icofont icofont-circuit mr-3 text-gray"></i><span style="color: palevioletred;">Go To Predictor</span></a></li>
+            
+
+             </ul>
+           
+             
+             
+             
+            
+             
+             
+             
+           <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Your Queries</div>
+           <ul class="sidebar-menu list-unstyled">
+                 <li class="sidebar-list-item"><a href="{% url 'helpands' %}" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: palevioletred;">Help and Support</span></a></li>
+              
+               <li class="sidebar-list-item"><a href="{% url 'passchange' %}" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: palevioletred;">Change Password</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'log' %}" class="sidebar-link text-muted"><i class="icofont icofont-logout mr-3 text-gray"></i><span style="color: palevioletred;">LOGOUT</span></a></li>
+               
+               
+               
+           </ul>
+         </div>
+         <div class="page-holder w-100 d-flex flex-wrap">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% load static %}
 <div class="container" style="padding-top: 80px; margin-bottom: 20px;;">
 <div class="row">
@@ -10,13 +172,13 @@
 </div> <br> <div class="row">
 {% endif %}
 <div class="col-md-4" >
-    <div class="card" style="width: 20rem;height:28rem;background-color: lightpink;">
+    <div class="card" style="width: 20rem;height:38rem;background-color: lightpink;">
         
-        <div class="card-body pt-5">
+        <div class="card-body pt-2">
             
            <h3 style="color: white;"> {{ i.name}} </h3><br> 
-           <i class="icofont-ui-home icofont-2x" style="color: white;"></i> &nbsp;  {{i.address}} <br> <br> <br>
-           <i class="icofont-ui-calendar icofont-2x" style="color: white;"></i> &nbsp;{{i.years_operating}} <br> <br>
+           <h4 style="font-family: righteous;"> <i class="icofont-ui-home icofont-2x" style="color: white;"></i> &nbsp;  {{i.address}} </h4> <br> <br> <br>
+            <h4 style="font-family: righteous;"> <i class="icofont-ui-calendar icofont-2x" style="color: white;"></i> &nbsp;{{i.years_operating}} </h4> <br> <br>
             <a href="#" class="btn" style="background-color: indigo;color: white;">Donate</a>
             
             
@@ -35,4 +197,14 @@
 
 
 </div>
-{% endblock %}
+</div>
+</div>
+
+
+
+<script src="{%static "js/jquery-3.4.1.min.js" %}"></script>
+                <script src="{%static "js/bootstrap.bundle.min.js" %}"></script>
+                <script src="{%static "sidebar/front.js" %}"></script>
+
+
+</body>

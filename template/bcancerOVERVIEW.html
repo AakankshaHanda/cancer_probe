@@ -1,45 +1,153 @@
+    
+
 {%load static %}
 
-<!DOCTYPE html>
+{%load static %}
 <html>
-  <head>
-    <meta charset="utf-8">
+<head>
+<title> </title>
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Project ADMIN - PANEL </title>
+    <title>Project DOCTORS- PANEL </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
     <!-- CSS files -->
+    <link rel="stylesheet" href="{%static "css/style.pink.css" %}">
+    <link rel="shortcut icon" href="{%static "images/favicon.png" %}">
+
     <link rel="stylesheet" href="{%static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{%static "icofont/icofont.css" %}">
-    <link rel="stylesheet" href="{%static "sidebar/style.violet.css" %}">
-    <link rel="shortcut icon" href=" {%static "images/favicon.png" %}">
+    <link rel="stylesheet" href="{%static "icofont/icofont.min.css" %}">
+
       <link href='https://fonts.googleapis.com/css?family=Denk One' rel='stylesheet'>
  
-<style>
-    body{
-        font-family: denk one;
-    }
-      
-    h1{
-        font-family: denk one;
-    }
-   
-      
-      </style>
-      
-      
-  </head>
-  <body> 
-   
-      
-    
+      <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+ 
 
+
+
+<style>
+
+h1{
+   
+   font-size: 50px;
+   color: palevioletred;
+   font-family: Denk one;
+   margin-left: 20px;
+   margin-top: 30px;;
+
+}
+
+
+</style>
+
+
+
+
+</head>
+
+<body>
+    
+      <!-- navbar-->
+      <header class="header">
+        <nav class="navbar navbar-expand-lg px-4 py-2" style="background-color:pink;"><a href="#" class="sidebar-toggler text-black-500 mr-4 mr-lg-5 lead" style="color: palevioletred;"><i class="icofont icofont-medical-sign"></i> </a><a href="#" class="navbar-brand font-weight-bold text-uppercase text-base" style="color: palevioletred;"> DOCTOR  </a>
+            
+            
+            
+          <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+            
+            <li class="nav-item dropdown ml-auto"><a id="userInfo" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src={%static "images/main_ad.png" %} alt="Admin" style="max-width: 3.5rem;" class="img-fluid rounded-circle shadow"></a>
+               <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Akanksha handa</strong><small></small></a>
+                 <div class="dropdown-divider"></div><a href="{% url 'doctorspanelmain' %}" class="dropdown-item">Dashboard</a>
+                 <div class="dropdown-divider"></div><a href="{% url 'login' %}" class="dropdown-item">Login</a>
+               </div>
+             </li>
+           </ul>
+         </nav>
+       </header>
+       <div class="d-flex align-items-stretch">
+         <div id="sidebar" class="sidebar py-3" style="background-color:whitesmoke; background: rgb(250,218,231); font-family: righteous;">
+           <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family" style="color: palevioletred;">Aakanksha  <br>Handa</div>
+           <ul class="sidebar-menu list-unstyled">
+               
+                <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="icofont icofont-tools mr-3 text-gray"></i><span style="color: palevioletred;">My Account</span></a>
+               <div id="pages" class="collapse">
+                 <ul class="sidebar-menu list-unstyled border-left border-primary border-solid">
+                     <li class="sidebar-list-item"><a href="{% url 'mprofile' %}" class="sidebar-link text-muted pl-lg-5" style="color:palevioletred;"> <span style="color: palevioletred;">Profile </span></a></li>
+                     <li class="sidebar-list-item"><a href="{% url 'editpro'%}" class="sidebar-link text-muted pl-lg-5"> <span style="color:palevioletred;">Edit profile </span></a></li>
+                     
+
+
+                     
+                        </ul>
+               </div>
+               
+
+
+             </li>
+               
+             <li class="sidebar-list-item"><a href="{% url 'index' %}" class="sidebar-link text-muted"><i class="icofont icofont-home mr-3" style="color:gray;"></i><span style="color: palevioletred;">Home</span></a></li>
+              
+             </ul>
+             
+             <div class="text-black-400 text-uppercase font-weight-bold small headings-font-family"></div>
+             <ul style="list-style-type: none" class="sidebar-menu list-unstyled">
+       
+                 <li class="sidebar-list-item"><a href="{% url 'doctorsp' %}" class="sidebar-link text-muted"><i class="icofont icofont-lungs mr-3 text-gray"></i><span style="color: palevioletred;">Lung Cancer</span></a></li>
+              
+               <li class="sidebar-list-item"><a href="{% url 'breastcancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-infinite mr-3 text-gray"></i><span style="color: palevioletred;">Breast Cancer</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'ccancerp' %}" class="sidebar-link text-muted"><i class="icofont icofont-dna-alt-2 mr-3 text-gray"></i><span style="color: palevioletred;">Cervical Cancer</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'doctors' %}" class="sidebar-link text-muted"><i class="icofont icofont-doctor mr-3 text-gray"></i><span style="color: palevioletred;">Doctors</span></a></li>
+              
+               <li class="sidebar-list-item"><a href="{% url 'hospitals' %}" class="sidebar-link text-muted"><i class="icofont icofont-hospital mr-3 text-gray"></i><span style="color: palevioletred;">Hospitals</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'NGO' %}" class="sidebar-link text-muted"><i class="icofont icofont-handshake-deal mr-3 text-gray"></i><span style="color: palevioletred;">Ngos</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'nnews' %}" class="sidebar-link text-muted"><i class="icofont icofont-news mr-3 text-gray"></i><span style="color: palevioletred;">News And Research</span></a></li>
+            
+   
+   
+
+
+
+
+
+
+
+
+
+               <li class="sidebar-list-item"><a href="{% url 'predict' %}" class="sidebar-link text-muted"><i class="icofont icofont-circuit mr-3 text-gray"></i><span style="color: palevioletred;">Go To Predictor</span></a></li>
+            
+
+             </ul>
+           
+             
+             
+             
+            
+             
+             
+             
+           <div class="text-black-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Your Queries</div>
+           <ul class="sidebar-menu list-unstyled">
+                 <li class="sidebar-list-item"><a href="{% url 'helpands' %}" class="sidebar-link text-muted"><i class="icofont icofont-leaf mr-3 text-gray"></i><span style="color: palevioletred;">Help and Support</span></a></li>
+              
+               <li class="sidebar-list-item"><a href="{% url 'passchange' %}" class="sidebar-link text-muted"><i class="icofont icofont-ui-password mr-3 text-gray"></i><span style="color: palevioletred;">Change Password</span></a></li>
+               
+               <li class="sidebar-list-item"><a href="{% url 'login' %}" class="sidebar-link text-muted"><i class="icofont icofont-login mr-3 text-gray"></i><span style="color: palevioletred;">LOGIN</span></a></li>
+               
+               
+               
+           </ul>
+         </div>
+         <div class="page-holder w-100 d-flex flex-wrap">
+
+          <div class="container-fluid" style="background-image: url({%static 'images/b1.jpg' %}); height: 100vh; background-repeat: no-repeat; background-size: cover;">
           
-          <div class="container-fluid" style="background-image: url({%static 'images/b1.jpg' %}); height: 550px; background-repeat: no-repeat; background-size: cover; opacity: 0.6">
           
-          
-          <p style="text-align: center; font-size: 80px;">BREAST CANCER- OVERVIEW</p>
+          <div style="margin-top: 150px;"><p style="text-align: center; font-size: 70px; color: palevioletred; font-family: denk one;">BREAST CANCER- OVERVIEW</p> </div>
           
           
           
@@ -48,37 +156,39 @@
  
           </div>
       
-      <div class="" style="background-color: whitesmoke;">
+      <div class="px-4" style="background-color: whitesmoke;background:linear-gradient(90deg, rgba(244,206,222,1) 0%, rgba(246,239,245,1) 29%) ;">
       
-      <h1 style="text-align: center; font-size: 35px; margin-top: 80px; color: dimgrey;">
+      
+        
+        <h1 style="text-align: center; font-size: 35px; margin-top: 80px; color: palevioletred;">
           What Is Breast Cancer? </h1><br> <br> <br>
           
           
-         <h3 style="text-align: center; font-size: 20px; color: dimgrey;">
+         <h3 style="text-align: center; font-size: 20px; color: #b37da2; font-family: righteous;">
            
           
-Breast cancer is a type of cancer that starts in the breast. Cancer starts when cells begin to grow out of control. <br> <br>
+Breast cancer is a type of cancer that starts in the breast. Cancer starts when cells begin to grow out of control.
 
 Breast cancer cells usually form a tumor that can often be seen on an x-ray or felt as a lump. Breast cancer occurs almost entirely in women, but men can get breast cancer, too.
 
-          It’s important to understand that most breast lumps are benign and not cancer (malignant). Non-cancerous breast tumors are abnormal growths, but they do not spread outside of the breast.  <br> <br> <br>They are not life threatening, but some types of benign breast lumps can increase a woman's risk of getting breast cancer. <br>Any breast lump or change needs to be checked by a health care professional to determine if it is benign or malignant (cancer) and if it might affect your future cancer risk. <br> <br> </h3>
+          It’s important to understand that most breast lumps are benign and not cancer (malignant). Non-cancerous breast tumors are abnormal growths, but they do not spread outside of the breast.  They are not life threatening, but some types of benign breast lumps can increase a woman's risk of getting breast cancer. Any breast lump or change needs to be checked by a health care professional to determine if it is benign or malignant (cancer) and if it might affect your future cancer risk.  </h3>
 
           
- <h1 style="text-align: center; font-size: 35px; margin-top: 60px; color: dimgrey;">         
+ <h1 style="text-align: center; font-size: 35px; margin-top: 60px; color: palevioletred;">         
           
      Where breast cancer starts?? </h1><br> <br> <br>
   
      
- <h3 style="text-align: center; font-size: 20px; color: dimgrey;">
+ <h3 style="text-align: center; font-size: 20px; color: #b37da2; font-family: righteous;">
                
      
 Breast cancers can start from different parts of the breast.
 
 Most breast cancers begin in the ducts that carry milk to the nipple.
 Some start in the glands that make breast milk .
-There are also other types of breast cancer that are less common like phyllodes tumor.<br> <br>
+There are also other types of breast cancer that are less common like phyllodes tumor.
 A small number of cancers start in other tissues in the breast. These cancers are called sarcomas and lymphomas and are not really thought of as breast cancers.
-     Although many types of breast cancer can cause a lump in the breast, not all do. <br>  Many breast cancers are also found on screening mammograms, which can detect cancers at an earlier stage, often before they can be felt, and before symptoms develop. </h3>
+     Although many types of breast cancer can cause a lump in the breast, not all do.   Many breast cancers are also found on screening mammograms, which can detect cancers at an earlier stage, often before they can be felt, and before symptoms develop. </h3>
           
           
           
@@ -154,12 +264,13 @@ A small number of cancers start in other tissues in the breast. These cancers ar
       
       
       
-      
+      <script src="{%static "js/jquery-3.4.1.min.js" %}"></script>
+                <script src="{%static "js/bootstrap.bundle.min.js" %}"></script>
+                <script src="{%static "sidebar/front.js" %}"></script>
+
       
       
     <!-- JavaScript files-->
-    <script src="{%static "js/jquery-3.4.1.min.js" %}"></script>
-    <script src="{%static "js/bootstrap.bundle.min.js" %}"></script>
-    <script src="{%static "sidebar/front.js" %}"></script>
+    
   </body>
 </html>
